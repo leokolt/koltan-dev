@@ -39,10 +39,43 @@ p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
+button {
+    background: unset;
+    border: none;
+    outline: none;
+}
+
+html, body {
+  scrollbar-gutter: stable;
+}
+
 /* on fonts*/
 @font-face {
     font-family: "Racama";
     src: url("/fonts/Racama.woff2") format("woff2");
+}
+/*
+@font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans-Black.woff2") format("woff2");
+    font-weight: 900;
+} */
+
+@font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSansGX.woff2") format("woff2");
 }
 
 :root {
@@ -54,19 +87,22 @@ p, h1, h2, h3, h4, h5, h6 {
 	--p: 16px;
 	--p2: 14px;
 	--p3: 12px;
-    font-family: 'Racama', sans-serif;
+
 
     --color-primary: #292929;
     --color-bg: #F7F7F7;
     --color-green: #62c0a5;
     --color-blue: #66c8cf;
     --color-yellow: #FFD101;
-    --color-gray: #f4f7fa;
+    --color-gray: #76787a;
     --color-purple:  #A390F8;
     --color-red: #E44041;
 
     color: var(--color-primary);
     background-color: var(--color-bg);
+    font-size: var(--p);
+    /* --font-head: 'Racama', sans-serif; */
+    font-family: "WorkSans", sans-serif;
 
     --transition: .3s;
 }
@@ -78,6 +114,7 @@ p, h1, h2, h3, h4, h5, h6 {
     --color-blue: #4A7E82;
     --color-yellow: #9B8314;
     --color-red: #8D3536;
+    --color-purple: #6A6097;
 }
 
 /* @media */
@@ -107,6 +144,13 @@ p, h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 900;
+}
+
+*:not(h1, h2, h3, h4, h5, h6) {
+    font-weight: 400;
+}
 
 
 
@@ -122,50 +166,15 @@ p, h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
 }
 
-.flex {
-    display: flex;
-    align-items: center;
-}
-
-.justify-center {
-    display: flex;
-    justify-content: center;
-}
-
-.flex > * {
-    flex: 1;
-}
-
 .box {
     border-radius: 10px;
-    border: 4px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
     box-shadow: 1px 1px 0 var(--color-primary), 2px 2px 0 var(--color-primary), 3px 3px 0 var(--color-primary), 4px 4px 0 var(--color-primary), 5px 5px 0 var(--color-primary);
 }
 
-.btn {
-    border-radius: 8px;
-    border: 3px solid var(--color-primary);
-    box-shadow: 1px 1px 0 var(--color-primary), 2px 2px 0 var(--color-primary), 3px 3px 0 var(--color-primary);
-    background: var(--color-green);
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: var(--transition)
+[color-scheme="dark"] *.is-dark {
+    background-color: #292929 !important
 }
-
-.btn:hover {
-    box-shadow: 1px 1px 0 var(--color-primary), 2px 2px 0 var(--color-primary);
-    transform: translateY(1px);
-}
-
-.btn:active {
-    box-shadow: none;
-    transform: translateY(3px);
-}
-
-/* .icon {
-    width: 30px;
-    height: auto;
-} */
 
 
 

@@ -1,6 +1,7 @@
 <script>
     import Nav from "./Nav.svelte";
     import Toggle from "./Toggle.svelte";
+
 </script>
 
 <header>
@@ -12,7 +13,7 @@
                 </a>
             </div>
             <div class="header__right">
-                <Nav/>
+                <Nav />
                 <Toggle />
             </div>
         </div>
@@ -24,7 +25,8 @@
 
 <style>
     header {
-        padding: 20px 0;
+        padding: 10px 0;
+
     }
 
     .header__inner {
@@ -54,6 +56,18 @@
 
     img {
         width: 50px;
+        position: relative;
+        z-index: 2;
     }
+
+    @media(min-width: 992px) {
+        header {
+            padding: 20px 0;
+        }
+    }
+
+
+
+
 
 </style>

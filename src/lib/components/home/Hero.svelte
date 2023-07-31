@@ -1,149 +1,136 @@
 <script>
+    /*imports*/
+    import { onMount } from 'svelte';
+    import { blur  } from 'svelte/transition';
+    import Button from '../chunks/Button.svelte';
 
-    import Round from '$lib/components/icons/Round.svelte'
-    import Square from '$lib/components/icons/Square.svelte'
-    import Wave from '$lib/components/icons/Wave.svelte'
-    import Dots from '$lib/components/icons/Dots.svelte'
-    import Half from '$lib/components/icons/Half.svelte'
 
+    /*move element on hover window*/
     let ref;
-    let ref2;
-    let ref3;
-    let ref4;
-    let ref5;
 
     const mouseHandler = (e) => {
         let x = e.clientX / window.innerWidth;
         let y = e.clientY / window.innerHeight;
         ref.style.cssText = 'transform: translate(-' + x * 25 + 'px, -' + y * 25 + 'px); transition:.35s';
-        ref2.style.cssText = 'transform: translate(' + x * 20 + 'px, ' + y * 20 + 'px); transition:.35s';
-        ref3.style.cssText = 'transform: translate(-' + x * 20 + 'px, ' + y * 15 + 'px); transition:.35s';
-        ref4.style.cssText = 'transform: translate(' + x * 10 + 'px, -' + y * 15 + 'px); transition:.35s';
-        ref5.style.cssText = 'transform: translate(' + x * 15 + 'px, -' + y * 5 + 'px); transition:.35s';
     }
 
+    /*change profs word*/
+	let profs = ['разработчик', 'фронтендер', 'вордпрессер', 'классный парень', 'джаваскриптер', 'немножко прогер', 'умею петь', 'отлично готовлю', 'кодер', 'фрилансер'];
 
+    // Returns random number for next index.
+    const randomSelection = () => {
+			return Math.round(Math.random() * (profs.length - 1));
+	};
+
+	// 	Set `profIndex` to a random value. This will change as it updates.
+	let profIndex = randomSelection();
+
+	// 	Change interval (milliseconds) here.
+	const INTERVAL_MS = 3000;
+
+	// Start the event on mount.  Each interval, the `profIndex` value will update.
+	onMount(() => {
+		const interval = setInterval(() => {
+			// Set `profIndex` to a new value each interval.
+			profIndex = randomSelection();
+		}, INTERVAL_MS);
+		return () => {
+			clearInterval(interval);
+		};
+	});
 </script>
 
-<section role="banner" class="" on:mousemove={mouseHandler}>
+<section role="banner" on:mousemove={mouseHandler}>
     <div class="wrapper">
-
-        <div class="flex">
+        <div class="hero-inner">
             <div>
-                <h1>Привет👋 Меня зовут Леонид, <br>
-                    и я - <span>разработчик</span></h1>
+                <h1>Привет👋 Меня зовут Леонид, и я -
+                    {#key profIndex}
+                        <span class="box" in:blur >{profs[profIndex]}</span>
+                    {/key}
+                </h1>
+                <Button href="/" title="И что дальше?" round="bottom-left" bg="yellow" margin="50px 0 0 0"/>
             </div>
-
-            <div class="justify-center">
+            <div class="hero-image dots">
                 <img src="/img/hero.svg" bind:this={ref} alt="hero"/>
-            </div>
-        </div>
-
-        <div class="absolute-left">
-            <div bind:this={ref2}>
-                <Wave/>
-            </div>
-        </div>
-
-        <div class="absolute-center">
-            <div bind:this={ref3}>
-                <Square/>
-            </div>
-        </div>
-
-        <div class="absolute-right">
-            <div bind:this={ref4}>
-                <Round/>
-            </div>
-        </div>
-
-        <div class="absolute-top">
-            <div bind:this={ref5}>
-                <Half/>
-            </div>
-        </div>
-
-        <div class="absolute-none">
-            <div>
-                <Dots/>
             </div>
         </div>
     </div>
 </section>
 
 <style>
+    .hero-inner {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .hero-image {
+        justify-content: center;
+        display: none;
+    }
+
+    .hero-inner > * {
+        flex: 1;
+    }
+
     section {
         position: relative;
-        /* overflow-x: hidden; */
+        margin-top: 30px;
     }
 
     h1 {
-        font-size: 55px;
+        font-size: 30px;
         line-height: 1;
+        font-weight: 900;
     }
 
     h1 span {
         font-style: italic;
-        color: var(--color-purple);
+        /* color: var(--color-purple); */
+        white-space: nowrap;
+        display: inline-block;
+        line-height: 1;
+        margin-top: 10px;
     }
 
     img {
         max-width: 350px;
     }
 
-    :global(.hero-shape) {
-        width: 100px;
-        transition: .35s;
+    .dots {
+        background-size: 85%;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+        background-position: right 250px;
+        background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5'  stroke-width='1' stroke='none' fill='hsla(0, 0%, 63%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
     }
 
-    .absolute-right, .absolute-left, .absolute-center, .absolute-top {
-        position: absolute;
-        width: 100px;
-        transition: .35s;
+    .box {
+        width: fit-content;
+        padding: 0 25px 10px 25px;
+        transform: rotateZ(-2deg);
+        background: var(--color-purple);
+        border-radius: 12px 12px 0 12px;
     }
 
-    .absolute-none {
-        position: absolute;
-        right: 20px;
-        width: 600px;
-        height: 200px;
-        bottom: 80px;
-        z-index: -1;
+    @media(min-width: 992px) {
+        h1 {
+            font-size: 55px;
+            line-height: 1;
+        }
+
+        section {
+            margin-top: 0;
+        }
+
+        .hero-inner {
+            flex-direction: row;
+        }
+
+        .hero-image {
+            display: flex;
+        }
     }
 
-    .absolute-right {
-        top: 0;
-        right: 10%;
-    }
-
-    .absolute-center {
-        top: 40%;
-        right: 40%;
-    }
-
-    .absolute-left {
-        bottom: 10%;
-        left: 0;
-    }
-
-    .absolute-top {
-        top: 10%;
-        left: 10%;
-    }
-
-
-   /* :global(.hero-shape.wave) {
-        right: 0;
-        top: 0;
-    }
-
-    :global(.hero-shape.square) {
-        left: 40%;
-        top: 40%;
-    }
-
-    :global(.hero-shape.round) {
-        left: 0;
-        top: 10%;
-    } */
 </style>
