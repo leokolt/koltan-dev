@@ -138,18 +138,20 @@ html, body {
 		--h2: 44px;
 		--h3: 36px;
 		--h4: 28px;
-		--p: 20px;
-		--p2: 18px;
-		--p3: 16px;
+		--p: 19px;
+		--p2: 17px;
+		--p3: 15px;
 	}
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
+    line-height: 1;
 }
 
 *:not(h1, h2, h3, h4, h5, h6) {
     font-weight: 400;
+    line-height: 1.6;
 }
 
 

@@ -1,7 +1,7 @@
 <script>
     /*imports*/
     import { onMount } from 'svelte';
-    import { blur  } from 'svelte/transition';
+    import { fade  } from 'svelte/transition';
     import Button from '../chunks/Button.svelte';
 
 
@@ -26,7 +26,7 @@
 	let profIndex = randomSelection();
 
 	// 	Change interval (milliseconds) here.
-	const INTERVAL_MS = 3000;
+	const INTERVAL_MS = 5000;
 
 	// Start the event on mount.  Each interval, the `profIndex` value will update.
 	onMount(() => {
@@ -46,7 +46,7 @@
             <div>
                 <h1>Привет👋 Меня зовут Леонид, и я -
                     {#key profIndex}
-                        <span class="box" in:blur >{profs[profIndex]}</span>
+                        <span class="box" in:fade >{profs[profIndex]}</span>
                     {/key}
                 </h1>
                 <Button href="/" title="И что дальше?" round="bottom-left" bg="yellow" margin="50px 0 0 0"/>
@@ -92,6 +92,7 @@
         display: inline-block;
         line-height: 1;
         margin-top: 10px;
+        font-weight: 900;
     }
 
     img {

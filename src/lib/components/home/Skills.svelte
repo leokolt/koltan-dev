@@ -65,6 +65,7 @@
         display: flex;
         gap: 30px;
         flex-wrap: wrap;
+        flex-direction: column;
     }
 
     .skillbox {
@@ -75,7 +76,7 @@
         text-decoration: none;
         color: var(--color-primary);
         padding: 30px 20px;
-        background-color: #fff
+        background-color: #fff;
     }
 
     img {
@@ -92,5 +93,11 @@
     p {
         margin-top: 30px;
         font-size: var(--p);
+    }
+
+    @media(min-width: 992px) {
+        .skills-inner {
+            flex-direction: row;
+        }
     }
 </style>

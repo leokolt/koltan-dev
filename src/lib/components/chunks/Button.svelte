@@ -29,6 +29,7 @@
         line-height: 1;
         font-weight: 700;
         font-size: var(--p);
+        text-align: center;
     }
 
     .btn.top-left {

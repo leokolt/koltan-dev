@@ -57,6 +57,7 @@
     .aboutme-inner {
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
     }
 
     .aboutme-inner > div {
@@ -78,7 +79,8 @@
     }
 
     .aboutme-right {
-        text-align: right;
+        margin-top: 30px;
+        text-align: left;
     }
 
     .aboutme-right > div {
@@ -87,6 +89,7 @@
 
     img {
         width: 200px;
+        width: 100%;
         height: auto;
     }
 
@@ -96,5 +99,21 @@
 
     .desc {
         color: var(--color-gray)
+    }
+
+    @media(min-width: 992px) {
+        .aboutme-inner {
+            flex-direction: row;
+        }
+
+        .aboutme-right {
+            text-align: right;
+        }
+
+
+        img {
+            width: 200px;
+        }
+
     }
 </style>
