@@ -1,4 +1,4 @@
-export const prerender = 'auto'
+//export const prerender = 'auto'
 
 
 import { fail } from "@sveltejs/kit";
