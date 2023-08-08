@@ -12,10 +12,11 @@ export const getMarkdownPosts = async () => {
 
             return {
                 meta: metadata,
-                path: postPath,
+                slug: postPath,
             }
         })
     )
 
     return allPosts
+
 }

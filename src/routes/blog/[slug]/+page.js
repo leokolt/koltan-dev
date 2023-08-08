@@ -1,18 +1,21 @@
+import { error } from '@sveltejs/kit';
+
 export async function load({ params }){
 
     const post = await import(`../../../content/posts/${params.slug}.md`)
-    const { title, date, categories, draft, next, previous  } = post.metadata
+    const { title, date, tags, published  } = post.metadata
     const content = post.default
 
-    //const notDraftPosts = allPosts.filter(post => post.metadata.draft === false)
+
+    if (!post || !published) {
+        throw error(404); // Couldn't resolve the post
+    }
 
     return {
       content,
       title,
       date,
-      categories,
-      draft,
-      next,
-      previous
+      tags,
+      published
     }
 }

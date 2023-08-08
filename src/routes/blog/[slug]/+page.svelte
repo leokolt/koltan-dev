@@ -1,7 +1,20 @@
 <script>
     export let data
+    import NextPrevPosts from '$lib/components/chunks/NextPrevPosts.svelte';
+    import { onMount } from "svelte";
+    import RelatedPosts from '$lib/components/chunks/RelatedPosts.svelte';
     import { dateFormat } from '$lib/utils/dateFormat.js';
-console.log(data.next)
+    import {readingTime} from '$lib/utils/readingTime.js'
+
+let timeToRead = 0
+
+onMount(() => {
+        const content = document.querySelector(".text")?.textContent;
+        // console.log(content)
+        if (content) {
+            timeToRead = readingTime(content);
+        }
+    })
 
 </script>
 
@@ -12,34 +25,26 @@ console.log(data.next)
 
 <article>
     <h1>{ data.title }</h1>
-    {#if data.categories.length}
+    <p  title={timeToRead}>{timeToRead}</p>
+    {#if data.tags.length}
     <ul>
-        {#each data.categories as category}
+        {#each data.tags as tag}
           <li>
-            <a href="/blog/category/{category}">
-              {category}
+            <a href="/blog/tag/{tag}">
+              {tag}
             </a>
           </li>
         {/each}
       </ul>
     {/if}
     <p>Published: {dateFormat(data.date)}</p>
-    <svelte:component this={data.content} />
+    <div class="text">
+        <svelte:component this={data.content}/>
+
+    </div>
+
 </article>
 
+<RelatedPosts currentPostTitle={data.title} currentPostTags={data.tags}/>
 
-
-
-<!--
-<script>
-    export let data
-    const { title, date, Content } = data
-</script>
-
-<article>
-    <h1>{title}</h1>
-    <p>Published: {date}</p>
-    <Content />
-</article>
-
--->
+<NextPrevPosts currentPostTitle={data.title} />

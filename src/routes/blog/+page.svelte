@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     export let data
     import { dateFormat } from '$lib/utils/dateFormat.js';
 
@@ -15,12 +15,10 @@
 
 <ul>
 
-    <!-- {#each data.posts as post} -->
-
     {#each data.posts.slice(0, currentItems) as post}
       <li>
         <h2>
-          <a href={`/blog/${post.path}`}>
+          <a href={`/blog/${post.slug}`}>
             {post.meta.title}
           </a>
         </h2>
@@ -48,12 +46,59 @@
    Нет статей
   </button>
 {/if}
+ -->
 
-<!-- <LightPaginationNav
-  totalItems="{items.length}"
-  pageSize="{pageSize}"
-  currentPage="{currentPage}"
-  limit="{1}"
-  showStepOptions="{true}"
-  on:setPage="{(e) => currentPage = e.detail.page}"
-/> -->
+ <script>
+    export let data
+  import {onMount} from 'svelte';
+  import { dateFormat } from '$lib/utils/dateFormat.js';
+
+    let visiblePosts = 1;
+
+    function loadMore() {
+      visiblePosts += 1;
+      sessionStorage.setItem('visiblePosts', visiblePosts);
+    }
+
+    onMount(() => {
+      const storedVisiblePosts = sessionStorage.getItem('visiblePosts');
+      if (storedVisiblePosts) {
+        visiblePosts = parseInt(storedVisiblePosts);
+      }
+    });
+  </script>
+
+  <h1>Блог</h1>
+
+  <p>Мои статьи для вас</p>
+
+  <ul>
+    {#each data.posts.slice(0, visiblePosts) as post}
+      <li>
+        <h2>
+          <a href={`/blog/${post.slug}`}>
+            {post.meta.title}
+          </a>
+        </h2>
+        Published {dateFormat(post.meta.date)}
+      </li>
+    {/each}
+  </ul>
+
+  {#if visiblePosts < data.posts.length}
+ <button
+    on:click={loadMore}
+    id="loadmore"
+    type="button"
+    class="btn btn-secondary">
+    Show more
+  </button>
+{:else if  visiblePosts >= data.posts.length}
+ <button
+    id="loadmore"
+    type="button"
+    class="btn btn-secondary"
+    disabled>
+   Нет статей
+  </button>
+{/if}

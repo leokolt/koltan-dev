@@ -1,14 +1,14 @@
-// src/routes/blog/category/[category]/+page.js
+// src/routes/blog/tag/[tag]/+page.js
 export const load = async ({ fetch, params }) => {
-    const { category } = params
+    const { tag } = params
     const response = await fetch(`/api/posts`)
     const allPosts = await response.json()
 
     const posts = allPosts
-      .filter(post => post.meta.categories.includes(category))
+      .filter(post => post.meta.tags.includes(tag))
 
     return {
-      category,
+      tag,
       posts
     }
   }

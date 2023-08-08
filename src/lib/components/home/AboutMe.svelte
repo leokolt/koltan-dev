@@ -34,7 +34,7 @@
             </div>
             <div class="aboutme-center">
                 <Box bg="yellow" round="top-left" padding="20px 50px" >
-                    <img src="/img/aboutme.svg" alt="about me"/>
+                    <img src="/img/aboutme.svg" alt="about me" loading="lazy"/>
                 </Box>
             </div>
             <div class="aboutme-right">
@@ -108,6 +108,7 @@
 
         .aboutme-right {
             text-align: right;
+            margin-top: 0;
         }
 
 

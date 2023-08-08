@@ -1,10 +1,11 @@
 ---
 title: Post One
-date: "2022-12-14"
-categories:
-  - "numbers"
-  - "odd"
-draft: false
+date: 2022-12-14
+tags:
+  - numbers
+  - odd
+draft: true
+published: true
 ---
 
 Hello, I am _Post One._

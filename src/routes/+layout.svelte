@@ -12,9 +12,9 @@
 <Header/>
 
 {#key data.currentRoute}
-<main in:fly={{ x: -200, duration: 300, delay: 300 }} out:fly={{ y: 200, duration: 300 }}>
-  <slot />
-</main>
+    <main in:fly={{ x: -200, duration: 300, delay: 300 }} out:fly={{ y: 200, duration: 300 }}>
+    <slot />
+    </main>
 {/key}
 
 <Footer/>

@@ -3,7 +3,7 @@
     import { dateFormat } from '$lib/utils/dateFormat.js';
 </script>
 
-<h1>Категория: {data.category}</h1>
+<h1>Категория: {data.tag}</h1>
 
 <p>Мои статьи для вас</p>
 
@@ -11,7 +11,7 @@
     {#each data.posts as post}
       <li>
         <h2>
-          <a href={`/blog/${post.path}`}>
+          <a href={`/blog/${post.slug}`}>
             {post.meta.title}
           </a>
         </h2>

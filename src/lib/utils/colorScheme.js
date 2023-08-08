@@ -1,8 +1,6 @@
 import { writable } from 'svelte/store'
 import { browser } from '$app/environment'
 
-//type Theme = 'light' | 'dark'
-
 // we set the theme in `app.html` to prevent flashing
 const userTheme = browser && ( localStorage.getItem('color-scheme') );
 

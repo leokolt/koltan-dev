@@ -1,10 +1,10 @@
 <script>
-    export let emoji
+    export let emoji = undefined
     export let round = 'all'
     export let bg = 'purple'
     // export let title = "Кнопка"
-    export let margin
-    export let padding
+    export let margin = undefined
+    export let padding = undefined
 </script>
 
 {#if emoji}

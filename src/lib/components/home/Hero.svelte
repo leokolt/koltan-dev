@@ -4,7 +4,6 @@
     import { fade  } from 'svelte/transition';
     import Button from '../chunks/Button.svelte';
 
-
     /*move element on hover window*/
     let ref;
 
@@ -52,7 +51,7 @@
                 <Button href="/" title="И что дальше?" round="bottom-left" bg="yellow" margin="50px 0 0 0"/>
             </div>
             <div class="hero-image dots">
-                <img src="/img/hero.svg" bind:this={ref} alt="hero"/>
+                <img src="/img/hero.svg" bind:this={ref} alt="hero" loading="eager"/>
             </div>
         </div>
     </div>

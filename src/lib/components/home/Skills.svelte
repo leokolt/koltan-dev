@@ -69,7 +69,7 @@
     }
 
     .skillbox {
-        flex: 0 0 calc(33.3333% - 20px);
+        flex: 1 1 calc((100% / 3) - 60px);
         border-radius: 15px;
         border: 2px solid var(--color-primary);
         box-shadow: 1px 1px 0 var(--color-primary), 2px 2px 0 var(--color-primary), 3px 3px 0 var(--color-primary);
