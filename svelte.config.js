@@ -8,7 +8,7 @@ import rehypeCodeTitles from 'rehype-code-titles'
 const config = {
 	kit: {
 		adapter: adapter({
-            strict: false
+            strict: true
         })
 	},
     extensions: ['.svelte', '.md'],
