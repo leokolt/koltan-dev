@@ -7,9 +7,7 @@ import rehypeCodeTitles from 'rehype-code-titles'
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-            strict: true
-        })
+		adapter: adapter()
 	},
     extensions: ['.svelte', '.md'],
     preprocess: [

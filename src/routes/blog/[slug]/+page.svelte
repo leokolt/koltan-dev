@@ -29,7 +29,7 @@ onMount(() => {
 <Seo
     description={data.description}
     title={data.title}
-    ogImage={data.title}/>
+    />
 
 <article>
     <h1>{ data.title }</h1>
