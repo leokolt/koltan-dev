@@ -1,6 +1,7 @@
 <script>
     import { config } from "$lib/config";
     const {web3FormsKey} = config
+
     let status = ""
     let name = "";
     let email = "";
