@@ -2,7 +2,7 @@
 title: Fourth Post
 date: "2023-01-24"
 tags:
-    - "кукиш"
+    - "pro-frilans"
     - "numbers"
     - "odd"
 published: true

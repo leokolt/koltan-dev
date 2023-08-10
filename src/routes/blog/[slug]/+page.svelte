@@ -6,6 +6,9 @@
     import { dateFormat } from '$lib/utils/dateFormat.js';
     import {readingTime} from '$lib/utils/readingTime.js'
 
+    import {transliterate} from '$lib/utils/latToRus.js'
+    import Seo from '$lib/components/globals/Seo.svelte';
+
 let timeToRead = 0
 
 onMount(() => {
@@ -18,10 +21,15 @@ onMount(() => {
 
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
   <title>My blog - {data.title}</title>
   <meta property="og:title" content={data.title} />
-</svelte:head>
+</svelte:head> -->
+
+<Seo
+    description={data.description}
+    title={data.title}
+    ogImage={data.title}/>
 
 <article>
     <h1>{ data.title }</h1>
@@ -31,7 +39,7 @@ onMount(() => {
         {#each data.tags as tag}
           <li>
             <a href="/blog/tag/{tag}">
-              {tag}
+              {transliterate(tag)}
             </a>
           </li>
         {/each}

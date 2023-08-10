@@ -83,17 +83,18 @@
         <slot/>
 
         </div>
+        <button on:click={scrollToLeft}>&lt;</button>
+        <button on:click={scrollToRight}>&gt;</button>
 
-    <button on:click={scrollToLeft}>Left</button>
-    <button on:click={scrollToRight}>Right</button>
+
 
 
 <style>
     .carousel {
         overflow-x: auto;
 		scroll-snap-type: x mandatory;
-display: flex;
-scroll-behavior: smooth;
+        display: flex;
+        scroll-behavior: smooth;
         --webkit-overflow-scrolling: touch;
     }
 

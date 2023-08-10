@@ -4,6 +4,7 @@
     export let title
     export let description
     export let type
+    export let ogImage
 
     $: url = $page.url.href
 </script>
@@ -19,4 +20,5 @@
           "description": "${description}"
           "url": "${url}",
         }</script>`}
+    <meta content="http://localhost:5173/og?message={ogImage}" property="og:image">
 </svelte:head>

@@ -11,4 +11,4 @@ export const load = async ({ fetch, params }) => {
       tag,
       posts
     }
-  }
+}

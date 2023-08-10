@@ -1,126 +1,53 @@
 <script>
-    import { enhance, applyAction } from "$app/forms";
-    //import Button from "$lib/Button.svelte";
-    import Seo from "$lib/components/globals/Seo.svelte"
+    import { config } from "$lib/config";
+    const {web3FormsKey} = config
+    let status = ""
+    let name = "";
+    let email = "";
+    let message = "";
+    const handleSubmit = async data => {
+      status = 'Submitting...'
+      const formData = new FormData(data.currentTarget)
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
 
-    export let form;
+      const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+          },
+          body: json
+      });
+      const result = await response.json();
+        if (result.success) {
+            console.log(result);
+            //status = result.message || "Success"
+            status = 'Заебца, получилса'
 
-  </script>
-
-  <div class="container">
-    <h2>Contact us</h2>
-    {#if form?.success}
-      <p class="success">{form?.status || ""}</p>
-    {:else}
-      <form
-        method="POST"
-        use:enhance={() => {
-          return async ({ result }) => {
-            await applyAction(result);
-          };
-        }}
-      >
-        <div class="form-group">
-          <label class="col-md-3 control-label" for="name">Name</label>
-          <div class="col-md-9">
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Your name"
-              class="form-control"
-              value={form?.name || ""}
-              class:error={form?.errors?.name}
-            />
-            {#if form?.errors?.name}
-              <p class="red">{form?.errors?.name}</p>
-            {/if}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 control-label" for="email">Your E-mail</label>
-          <div class="col-md-9">
-            <input
-              id="email"
-              name="email"
-              type="text"
-              placeholder="Your email"
-              class="form-control"
-              value={form?.email || ""}
-              class:error={form?.errors?.email}
-            />
-            {#if form?.errors?.email}
-              <p class="red">{form?.errors?.email}</p>
-            {/if}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 control-label" for="message">Your message</label>
-          <div class="col-md-9">
-            <textarea
-              class="form-control"
-              id="message"
-              name="message"
-              placeholder="Please enter your message here..."
-              rows="5"
-              value={form?.message || ""}
-              class:error={form?.errors?.message}
-            />
-            {#if form?.errors?.message}
-              <p class="red">{form?.errors?.message}</p>
-            {/if}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-md-12">
-            <input type="submit" value='Submit'>
-          </div>
-        </div>
-      </form>
-    {/if}
-  </div>
-  <Seo
-    title="Contact | Business Frontpage"
-    description="This is contact page"
-    type="WebPage"
-  />
-
-
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw1u6-zIePNSYsTeiGPU-DhL_6Dt0KSS0meYDOFKAwVqXChg/viewform?usp=pp_url&entry.2005620554=Leo+Kolt&entry.982414856=leo@kolt.me&entry.839337160=Hi" target="_blank">Кнопка</a>
-
-  <style>
-    .container {
-      width: 100%;
-      padding: 2em 0;
+            name = "";
+            email = "";
+            message = "";
+            // Исчезновение сообщения через 3 секунды
+            setTimeout(() => {
+                status = "";
+            }, 3000);
+        } else {
+            console.log(result);
+            status = 'Случилась неприятность'
+        }
     }
-    h2 {
-      font-weight: 500;
-      font-size: 2em;
-    }
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.75em 1em;
-      border-radius: 0.25em;
-      border: 1px solid #999;
-    }
-    .form-group {
-      margin-bottom: 1.5em;
-    }
-    label {
-      display: block;
-      padding-bottom: 0.5em;
-    }
-    .success {
-      color: lightgreen;
-    }
-    .error {
-      border: 1px solid red;
-    }
-    .red {
-      color: red;
-    }
-  </style>
+    </script>
+
+    <form on:submit|preventDefault={handleSubmit}>
+        <input type="hidden" name="subject" value="Новое письмо с сайта koltan.dev">
+        <input type="hidden" name="from_name" value="koltan.dev">
+        <input type="hidden" name="access_key" value={web3FormsKey}>
+        <input type="text" name="name" required bind:value={name}/>
+        <input type="email" name="email" required bind:value={email}/>
+        <textarea name="message" required rows="3" bind:value={message}></textarea>
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <input type="submit" />
+    </form>
+
+    <div>{status}</div>
