@@ -13,16 +13,11 @@ import OgCard from './OgCard.svelte'
 const height = 630
 const width = 1200
 
-//const logo = readFileSync(`${process.cwd()}/src/lib/assets/plane-logo@1x.png`)
+
 const newKansasBlack = readFileSync(
   `${process.cwd()}/src/lib/WorkSans-Regular.ttf`
 )
-// const concourseRegular = readFileSync(
-//   `${process.cwd()}/src/lib/WorkSans-Regular.ttf`
-// )
-// const concourseSmallCaps = readFileSync(
-//   `${process.cwd()}/src/lib/WorkSans-Regular.ttf`
-// )
+
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ request, params, fetch }) => {
