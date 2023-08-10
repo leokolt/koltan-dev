@@ -1,6 +1,6 @@
 <script>
     import { config } from "$lib/config";
-    //const {web3FormsKey} = config
+    const {web3FormsKey} = config
     let status = ""
     let name = "";
     let email = "";
@@ -42,7 +42,7 @@
     <form on:submit|preventDefault={handleSubmit}>
         <input type="hidden" name="subject" value="Новое письмо с сайта koltan.dev">
         <input type="hidden" name="from_name" value="koltan.dev">
-        <input type="hidden" name="access_key" value="3eaa5353-83d7-492c-8771-8f636e5bf2db">
+        <input type="hidden" name="access_key" value={web3FormsKey}>
         <input type="text" name="name" required bind:value={name}/>
         <input type="email" name="email" required bind:value={email}/>
         <textarea name="message" required rows="3" bind:value={message}></textarea>
