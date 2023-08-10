@@ -5,10 +5,7 @@ export const prerender = true
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ request, params, url }) => {
-//   const pageData = await getContentForPathname(`/blog/${params.slug}`)
-//   if (!pageData) {
-//     throw error(404, `Post not found for ${url.pathname}`)
-//   }
+
 
   const pageData = await import(`../../../../content/posts/${params.slug}.md`)
   const { title, date, tags, published, description  } = pageData.metadata
@@ -19,7 +16,6 @@ export const GET = async ({ request, params, url }) => {
         throw error(404, `Post not found for ${url.pathname}`)
       }
 
-  //const { title, description } = pageData
 
   return json({ title, description })
 }
