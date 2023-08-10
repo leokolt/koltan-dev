@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit'
 import { readFileSync } from 'fs'
 import satori from 'satori'
 import { html as toReactNode } from 'satori-html'
-import sharp from 'sharp'
+//import sharp from 'sharp'
 import OgCard from './OgCard.svelte'
 
 
@@ -96,11 +96,11 @@ export const GET = async ({ request, params, fetch }) => {
   })
   const png = resvg.render().asPng()
 
-  const jpg = sharp(png).jpeg({ quality: 70, progressive: true })
+  //const jpg = sharp(png).jpeg({ quality: 70, progressive: true })
 
-  return new Response(jpg, {
+  return new Response(png, {
     headers: {
-      'content-type': 'image/jpg',
+      'content-type': 'image/png',
     },
   })
 }
