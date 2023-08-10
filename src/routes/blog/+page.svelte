@@ -85,20 +85,12 @@
     {/each}
   </ul>
 
-  {#if visiblePosts < data.posts.length}
+
  <button
     on:click={loadMore}
     id="loadmore"
     type="button"
-    class="btn btn-secondary">
-    Show more
-  </button>
-{:else if  visiblePosts >= data.posts.length}
- <button
-    id="loadmore"
-    type="button"
     class="btn btn-secondary"
-    disabled>
-   Нет статей
+    disabled={visiblePosts >= data.posts.length}>
+    {visiblePosts < data.posts.length ? 'Показать еще статьи' : 'Нет статей'}
   </button>
-{/if}

@@ -9,6 +9,7 @@
     import {transliterate} from '$lib/utils/latToRus.js'
     import Seo from '$lib/components/globals/Seo.svelte';
 
+
 let timeToRead = 0
 
 onMount(() => {
@@ -29,6 +30,8 @@ onMount(() => {
 <Seo
     description={data.description}
     title={data.title}
+
+    generateOgImage={true}
     />
 
 <article>

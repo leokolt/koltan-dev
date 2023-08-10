@@ -4,6 +4,11 @@ import sveltePreprocess from 'svelte-preprocess'
 import { mdsvex } from 'mdsvex'
 import rehypeCodeTitles from 'rehype-code-titles'
 
+const mdsvexOptions = {
+	extensions: ['.md'],
+    rehypePlugins: [rehypeCodeTitles]
+}
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
@@ -11,17 +16,8 @@ const config = {
 	},
     extensions: ['.svelte', '.md'],
     preprocess: [
-        sveltePreprocess({
-
-
-            /* Other sveltePreprocess options here, like SCSS */
-        }),
-        mdsvex({
-          extensions: ['.md'],
-          rehypePlugins: [
-            rehypeCodeTitles
-          ]
-        }),
+        sveltePreprocess(),
+        mdsvex(mdsvexOptions),
       ]
 
 
