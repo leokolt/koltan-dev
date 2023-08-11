@@ -18,7 +18,7 @@
     socialImageData = `${$page.url.pathname === '/' ? '' : $page.url.pathname}/og-image-data.json`
     socialImagePath = `/og-image-generator${
       $page.url.pathname === '/' ? '' : $page.url.pathname
-    }/og-image.jpg`
+    }/og-image.png`
     socialImageUrl = `http://localhost:5173${socialImagePath}`
   }
 </script>

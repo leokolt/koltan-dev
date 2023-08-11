@@ -19,18 +19,3 @@ export const GET = async ({ request, params, url }) => {
 
   return json({ title, description })
 }
-
-// import { getMarkdownPosts } from '$lib/utils/getPosts'
-// import { json } from '@sveltejs/kit'
-
-// export const GET = async ({ request, params, url}) => {
-//   const pageData = await getMarkdownPosts()
-
-//   if (!pageData) {
-//         throw error(404, `Post not found for ${url.pathname}`)
-//       }
-
-//       const { title, description } = pageData
-
-//   return json(pageData)
-// }
