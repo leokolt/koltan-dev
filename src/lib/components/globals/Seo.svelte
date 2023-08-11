@@ -19,7 +19,7 @@
     socialImagePath = `/og-image-generator${
       $page.url.pathname === '/' ? '' : $page.url.pathname
     }/og-image.png`
-    socialImageUrl = `http://localhost:5173${socialImagePath}`
+    socialImageUrl = `https://koltan-dev.vercel.app${socialImagePath}`
   }
 </script>
 
