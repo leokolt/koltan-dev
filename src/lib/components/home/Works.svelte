@@ -10,4 +10,4 @@
     {/each}
 </Carousel>
 
-<a href="/works" class="btn">Посмотрите все работы</a>
+<!-- <a href="/works" class="btn">Посмотрите все работы</a> -->
