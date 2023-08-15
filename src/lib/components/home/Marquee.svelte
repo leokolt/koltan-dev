@@ -35,8 +35,11 @@
         overflow: hidden;
         display: flex;
         color: #fff;
-        background: #000;
+        background: #292929;
         margin-top: 80px;
+        border-bottom: 3px solid var(--color-yellow);
+        border-top: 3px solid var(--color-yellow);
+        transform: skewY(-1deg);
     }
 
     .scroller {
@@ -57,7 +60,7 @@
 
     .scroller span:before, .scroller-last span:before {
         content: '';
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'%3E%3Cg stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 .5v13M1.5 3.5l11 7M1.5 10.5l11-7'/%3E%3C/g%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'%3E%3Cg stroke='%23F7C90D' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 .5v13M1.5 3.5l11 7M1.5 10.5l11-7'/%3E%3C/g%3E%3C/svg%3E");
         width: 32px;
         height: 32px;
         display: inline-block;

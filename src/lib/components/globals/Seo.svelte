@@ -1,5 +1,6 @@
 <script>
     import {page} from '$app/stores'
+    import { dev } from '$app/environment'
 
     export let title
     export let description
@@ -19,7 +20,13 @@
     socialImagePath = `/og-image-generator${
       $page.url.pathname === '/' ? '' : $page.url.pathname
     }/og-image.png`
-    socialImageUrl = `https://koltan-dev.vercel.app${socialImagePath}`
+    //socialImageUrl = `https://koltan-dev.vercel.app${socialImagePath}`
+
+    if (dev) {
+        socialImageUrl = `http://localhost:5173${socialImagePath}`
+    } else {
+        socialImageUrl = `https://koltan-dev.vercel.app${socialImagePath}`
+    }
   }
 </script>
 

@@ -3,10 +3,12 @@ import adapter from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess'
 import { mdsvex } from 'mdsvex'
 import rehypeCodeTitles from 'rehype-code-titles'
+import rehypePrism from 'rehype-prism-plus'
 
 const mdsvexOptions = {
 	extensions: ['.md'],
-    rehypePlugins: [rehypeCodeTitles]
+    highlight: false,
+    rehypePlugins: [rehypeCodeTitles, rehypePrism]
 }
 
 /** @type {import('@sveltejs/kit').Config} */

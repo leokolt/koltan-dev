@@ -1,90 +1,108 @@
 <script>
     import { calculateTime } from "$lib/utils/timeInterval";
     import { plural } from "$lib/utils/pluralWord";
-    import Box from "../chunks/Box.svelte";
-
-    const points = [
-        {
-            title: `Более ${plural(calculateTime("09/01/2018"), 'года', 'лет', 'лет')}`,
-            desc: 'в разработке веб-сайтов'
-        },
-        {
-            title: `Более ${plural(100, 'проекта', 'проектов', 'проектов')}`,
-            desc: 'выполненных на различном стеке'
-        },
-        {
-            title: `Более ${plural(300, 'клиента', 'клиентов', 'клиентов')}`,
-            desc: 'довольных качеством моей работы'
-        },
-    ]
 
 </script>
 
 <section>
     <div class="wrapper">
-        <div class="aboutme-inner">
-            <div class="">
-                <h2>Немного обо мне</h2>
+        <div class="inner">
+            <div class="nums">
+                <span>Более {plural(calculateTime("09/01/2018"), 'года', 'лет', 'лет')} в разработке</span> веб-сайтов, больше {plural(100, 'проекта', 'проектов', 'проектов')}, выполненных на различном стеке, не меньше {plural(300, 'довольного клиента', 'довольных клиентов', 'довольных клиентов')}
+            </div>
+
+            <div class="rotate">
+                <img src="/img/golova.webp" width="50" height="50" alt="golova">
+                <svg id="rotatingText" viewBox="0 0 200 200" width="200" height="200">
+                  <defs>
+                    <path id="circle" d="M 100, 100
+                            m -75, 0
+                            a 75, 75 0 1, 0 150, 0
+                            a 75, 75 0 1, 0 -150, 0
+                            ">
+                    </path>
+                  </defs>
+                  <text width="400">
+                    <textPath alignment-baseline="top" xlink:href="#circle" class="text">
+                       Время заказать красиый и быстрый сайт &nbsp;&nbsp;*
+                    </textPath>
+                  </text>
+                </svg>
+            </div>
+
+            <div class="bio">
                 <p>
-                    Меня зовут Леонид Колтан. Я - фрилансер с 2018 года. Работаю с популярными CMS и чистым кодом, работаю и изучаю Javascript и JS-фреймворки. Учился на гуманитария, но стал технарем, а полученые занания помогают мне в работе.
+                    Меня зовут Леонид Колтан. Я - фрилансер с 2018 года. Работаю с популярными CMS и чистым кодом, c Javascript и JS-фреймворками. Учился на гуманитария и стал технарем.
                 </p>
                 <p>
-                    Мне {plural(calculateTime("07/03/1987"), 'год', 'года', 'лет')} и долгое время моя деятельность не была связана с IT, но я занимался любимым делом в качестве хобби. На сегодня в моем портфолио не мало различных проектов, постоянные клиенты и тысячи строк кода.
+                    Мне {plural(calculateTime("07/03/1987"), 'год', 'года', 'лет')} и я не с пеленок в  IT, но на сегодня в моем портфолио не мало различных проектов, постоянные клиенты и тысячи строк кода.
                 </p>
             </div>
-            <div class="aboutme-center">
-                <Box bg="yellow" round="top-left" padding="20px 50px" >
-                    <img src="/img/aboutme.svg" alt="about me" loading="lazy"/>
-                </Box>
-            </div>
-            <div class="aboutme-right">
-                {#each points as {title, desc}}
-                    <div>
-                        <p class="title">{title}</p>
-                        <p class="desc">{desc}</p>
-                    </div>
-                {/each}
-            </div>
+
         </div>
+
     </div>
 </section>
 
 <style>
+
     section {
-        margin-top: 80px;
+        margin-top: 120px;
     }
 
-    .aboutme-inner {
+    .inner {
         display: flex;
-        justify-content: space-between;
-        flex-direction: column;
+        gap: 30px;
     }
 
-    .aboutme-inner > div {
-        flex: 1;
+    .nums {
+        font-size: var(--h2);
+        line-height: 1.4;
+        text-transform: uppercase;
+        /* flex: 1 1 calc(60% - 25px); */
     }
 
-    h2 {
-        font-size: var(--h4);
-        margin-bottom: 10px;
+
+    .bio p {
+        font-size: var(--p);
     }
 
-    .aboutme-inner p:not(.title, .desc) {
-        margin-bottom: 20px;
+    .bio p + p {
+        margin-top: 20px;
     }
 
-    .aboutme-center {
-        display: flex;
-        justify-content: center;
+
+    .text {
+      font-weight: 400;
+      letter-spacing: 1.6px;
+      font-size: var(--p);
+      fill: var(--color-primary);
     }
 
-    .aboutme-right {
-        margin-top: 30px;
-        text-align: left;
+    #rotatingText {
+      animation-name: rotate-circle;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
     }
 
-    .aboutme-right > div {
-        margin-bottom: 30px;
+    @keyframes rotate-circle {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+
+    .rotate {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      flex: none;
+    }
+
+    .rotate img {
+      position: absolute;
+      width: 90px;
+      height: auto;
     }
 
     img {
@@ -93,28 +111,4 @@
         height: auto;
     }
 
-    .title {
-        font-weight: 900;
-    }
-
-    .desc {
-        color: var(--color-gray)
-    }
-
-    @media(min-width: 992px) {
-        .aboutme-inner {
-            flex-direction: row;
-        }
-
-        .aboutme-right {
-            text-align: right;
-            margin-top: 0;
-        }
-
-
-        img {
-            width: 200px;
-        }
-
-    }
 </style>

@@ -25,7 +25,7 @@
         height: 32px;
         width: 32px;
         border-radius: 999px;
-        background-color: yellow;
+        background-color: var(--color-accent);
         display: block;
         position: relative;
         border: 2px solid #292929;

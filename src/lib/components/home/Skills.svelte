@@ -52,12 +52,11 @@
 
 <style>
     section {
-        margin-top: 80px;
+        margin-top: 120px;
     }
 
     h2 {
         font-size: var(--h1);
-        text-align: center;
         margin-bottom: 30px;
     }
 
@@ -69,14 +68,12 @@
     }
 
     .skillbox {
-        flex: 1 1 calc((100% / 3) - 60px);
-        border-radius: 15px;
-        border: 2px solid var(--color-primary);
-        box-shadow: 1px 1px 0 var(--color-primary), 2px 2px 0 var(--color-primary), 3px 3px 0 var(--color-primary);
+        flex: 1 1 calc((100% / 3) - 20px);
+        border-radius: 30px;
+        border: 3px solid var(--color-primary);
         text-decoration: none;
         color: var(--color-primary);
         padding: 30px 20px;
-        background-color: #fff;
     }
 
     img {

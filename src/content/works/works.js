@@ -1,7 +1,7 @@
 export const works = [
     {
         title: 'Сайт бюро переводов',
-        image: "/img/wp.svg",
+        image: "/img/works/work-1.jpg",
 		year: 2022,
 		categories: "WordPress",
 		link: "https://188.ru/",
@@ -10,7 +10,7 @@ export const works = [
     },
     {
         title: 'Сайт бюро',
-        image: "/img/html.svg",
+        image: "/img/works/work-1.jpg",
 		year: 2023,
 		categories: "WordPress",
 		link: "https://188.ru/",
@@ -20,7 +20,7 @@ export const works = [
     },
     {
         title: 'Сайт переводов',
-        image: "/img/js.svg",
+        image: "/img/works/work-1.jpg",
 		year: 2020,
 		categories: "WordPress",
 		link: "https://188.ru/",
@@ -30,7 +30,7 @@ export const works = [
     },
     {
         title: 'Сайт бюро переводов',
-        image: "/img/wp.svg",
+        image: "/img/works/work-1.jpg",
 		year: 2022,
 		categories: "WordPress",
 		link: "https://188.ru/",
@@ -39,7 +39,7 @@ export const works = [
     },
     {
         title: 'Сайт бюро',
-        image: "/img/html.svg",
+        image: "/img/works/work-1.jpg",
 		year: 2023,
 		categories: "WordPress",
 		link: "https://188.ru/",
