@@ -13,16 +13,63 @@ Hello, I am _Post One._
 **Nice to meet you!**
 
 
-```js:src/lib/javascripts {1,3-4} showLineNumbers
-    onMount(() => {
-        carouselItemRef = document.querySelector('.carousel > *');
+```html (src/routes/+page.svelte) {3-5}
+<script>
+function sum(a, b) {
+  return a + b
+}
 
-          // Добавляем обработчики событий прокрутки карусели, чтобы следить за ее концами
-        carouselRef.addEventListener('scroll', updateCarouselEnds);
-        window.addEventListener('resize', updateCarouselEnds);
+let actual = sum(2, 2)
+let expected = 4
 
-        // Обновляем состояние, когда компонент отрисован впервые
-        updateCarouselEnds();
-    });
+if (actual !== expected) {
+	throw new Error(`${actual} is not equal to ${expected}`)
+}
+</script>
 
+<button
+	class="card"
+	class:selected={isSelected}
+	class:flip={isSelectedOrMatch}
+	disabled={isSelectedOrMatch}
+	on:click={() => selectCard(cardIndex)}
+>
+	<div class="back" class:match>
+		{card}
+	</div>
+</button>
+
+<style>
+	.card {
+		height: 140px;
+		width: 140px;
+		font-size: 4rem;
+		background-color: var(--bg-2);
+		transition: rotate 0.3s ease-out;
+		transform-style: preserve-3d;
+
+		&.selected {
+			border: 4px solid var(--border);
+		}
+
+		&.flip {
+			rotate: y 180deg;
+			pointer-events: none;
+		}
+
+		& .back {
+			position: absolute;
+			inset: 0;
+			display: grid;
+			place-content: center;
+			backface-visibility: hidden;
+			rotate: y 180deg;
+		}
+
+		& .match {
+			transition: opacity 0.3s ease-out;
+			opacity: 0.4;
+		}
+	}
+</style>
 ```

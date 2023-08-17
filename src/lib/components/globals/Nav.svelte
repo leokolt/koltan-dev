@@ -7,6 +7,10 @@
             href: "/blog"
         },
         {
+            title: "Работы",
+            href: "/works"
+        },
+        {
             title: "Обо мне",
             href: "/about"
         },
@@ -97,6 +101,9 @@ on:click="{() => menuShow = !menuShow}">
         position: relative;
         z-index: 2;
         box-shadow: 0px 0px 0px var(--color-accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .menu-toggle:hover {

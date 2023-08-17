@@ -2,12 +2,13 @@
     © 2023. Все права защищены
 </footer>
 
-<style>
+<style lang="postcss">
     footer {
+        margin-top: 120px;
       padding: 1rem;
       background: darkslategray;
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
       color: #fff;
     }
 </style>

@@ -49,7 +49,7 @@ onMount(() => {
       </ul>
     {/if}
     <p>Published: {dateFormat(data.date)}</p>
-    <div class="text">
+    <div class="wrapper-read">
         <svelte:component this={data.content}/>
 
     </div>
@@ -59,3 +59,10 @@ onMount(() => {
 <RelatedPosts currentPostTitle={data.title} currentPostTags={data.tags}/>
 
 <NextPrevPosts currentPostTitle={data.title} />
+
+<style>
+    .wrapper-read {
+        max-width: 800px;
+        margin: auto;
+    }
+</style>
