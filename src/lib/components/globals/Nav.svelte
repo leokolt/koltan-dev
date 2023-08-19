@@ -79,12 +79,18 @@ on:click="{() => menuShow = !menuShow}">
     }
 
     .active {
-        text-decoration: underline wavy var(--color-reserve) 2px;
-        -webkit-text-decoration: underline wavy var(--color-reserve) 2px;
+        /* text-decoration: underline wavy var(--color-reserve) 2px; */
+        /* -webkit-text-decoration: underline wavy var(--color-reserve) 2px; */
+        text-decoration-style: wavy;
+        -webkit-text-decoration-style: wavy;
         text-underline-offset: 1px;
         -webkit-text-underline-offset: 1px;
-        /* -webkit-text-decoration-line: line-through;
-        -webkit-text-decoration-color: var(--color-reserve); */
+        text-decoration-line: underline;
+        -webkit-text-decoration-line: underline;
+        text-decoration-thickness: 2px;
+        -webkit-text-decoration-thickness: 2px;
+        text-decoration-color: var(--color-reserve);
+        -webkit-text-decoration-color: var(--color-reserve);
     }
 
     .menu-toggle {
