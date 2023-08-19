@@ -50,29 +50,6 @@ html, body {
   scrollbar-gutter: stable;
 }
 
-/* on fonts*/
-@font-face {
-    font-family: "Racama";
-    src: url("/fonts/Racama.woff2") format("woff2");
-}
-/*
-@font-face {
-    font-family: "WorkSans";
-    src: url("/fonts/WorkSans-Regular.woff2") format("woff2");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "WorkSans";
-    src: url("/fonts/WorkSans-Bold.woff2") format("woff2");
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: "WorkSans";
-    src: url("/fonts/WorkSans-Black.woff2") format("woff2");
-    font-weight: 900;
-} */
 
 @font-face {
     font-family: "WorkSans";
@@ -84,7 +61,7 @@ html, body {
 	--h2: 30px;
 	--h3: 26px;
 	--h4: 24px;
-	--h5: 22px;
+	--h5: 20px;
 	--p: 16px;
 	--p2: 14px;
 	--p3: 12px;
@@ -109,6 +86,9 @@ html, body {
     font-family: "WorkSans", sans-serif;
 
     --transition: .3s;
+    --unit: calc(1.5625vw);
+    --unit-2: calc(4px + 1.5625vw);
+    --unit-3: calc(8px + 1.5625vw); /* ~30px on desktop  */
 }
 
 :root[color-scheme="dark"] {
@@ -123,7 +103,7 @@ html, body {
 		--h2: 40px;
 		--h3: 32px;
 		--h4: 24px;
-		--h4: 20px;
+		--h5: 20px;
 		--p: 18px;
 		--p2: 16px;
 		--p3: 14px;
@@ -137,6 +117,7 @@ html, body {
 		--h2: 44px;
 		--h3: 36px;
 		--h4: 28px;
+        --h5: 24px;
 		--p: 19px;
 		--p2: 17px;
 		--p3: 15px;
@@ -167,10 +148,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
 }
 
-/* .box {
-    border-radius: 30px;
-    border: 2px solid var(--color-primary);
-} */
+.no-padding {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.no-scrollbar::-webkit-scrollbar { width: 0; display: none; }
+
+.no-scrollbar { -ms-overflow-style: none; }
+
+.no-scrollbar { overflow: -moz-scrollbars-none; }
 
 .btn {
     border-radius: var(--radius);
@@ -184,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
     color: var(--color-primary);
     padding: 20px 40px;
-    margin-top: 20px;
+    margin-top: calc(2 * var(--unit-2));
     transition: var(--transition-shadow);
     box-shadow: 0px 0px 0px var(--color-accent);
     cursor: pointer;
@@ -203,13 +192,17 @@ h1, h2, h3, h4, h5, h6 {
     cursor: auto;
 }
 
-[color-scheme="dark"] *.is-dark {
+section {
+    margin-top: calc(4 * var(--unit-3));
+}
+
+/* [color-scheme="dark"] *.is-dark {
     background-color: #292929 !important
 }
 
 [color-scheme="dark"] img.is-dark {
     filter:invert(1.2)
-}
+} */
 
 /*code highlight*/
 

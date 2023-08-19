@@ -3,9 +3,6 @@
     let dialog; // HTMLDialogElement
     $: if (dialog && showModal) dialog.showModal();
 
-
-    import ContactForm from "../chunks/ContactForm.svelte";
-
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -16,7 +13,7 @@
 >
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div on:click|stopPropagation>
-        <ContactForm />
+        <slot />
 		<!-- svelte-ignore a11y-autofocus -->
 		<button autofocus on:click={() => dialog.close()}>close modal</button>
 	</div>
@@ -28,9 +25,12 @@
 		border-radius: 0.2em;
 		border: none;
 		padding: 0;
+        margin: auto;
 	}
 	dialog::backdrop {
-		background: rgba(0, 0, 0, 0.3);
+	    background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
 	}
 	dialog > div {
 		padding: 1em;

@@ -75,12 +75,11 @@
 
     section {
         position: relative;
-        margin-top: 30px;
+        margin-top: var(--unit-3);
     }
 
     h1 {
-
-        font-size: 55px;
+        font-size: var(--h2);
         line-height: 1.2;
     }
 

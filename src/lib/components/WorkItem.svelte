@@ -73,7 +73,7 @@
     .image {
         border: var(--border);
         border-radius: var(--radius);
-        margin: auto 30px 30px;
+        margin: auto 15px 15px;
     }
 
     .work-item.full .image {
@@ -90,13 +90,13 @@
     }
 
     .content {
-        padding: 30px;
+        padding: var(--unit-3);
         padding-bottom: 0;
         flex: 1 1 65%;
     }
 
     .work-item.full .content {
-        padding-bottom: 30px;
+        padding-bottom: var(--unit-3);
     }
 
     time {
@@ -160,7 +160,7 @@
 
     h3 {
         font-size: var(--h4);
-        margin-bottom: 16px;
+        margin-bottom: var(--unit-2);
         display: inline-block;
     }
 
@@ -213,6 +213,16 @@
 
     .collapse-btn:hover {
         text-decoration-color: transparent;
+    }
+
+    @media(min-width: 992px) {
+        .content {
+            padding: var(--unit-3);
+        }
+
+        .image {
+            margin: auto var(--unit-3) var(--unit-3);
+        }
     }
 
 </style>

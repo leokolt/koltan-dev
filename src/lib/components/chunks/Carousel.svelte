@@ -72,9 +72,7 @@
     });
 </script>
 
-<section>
 
-    <div class="wrapper">
         <div class="carousel-header">
             <h2>{title}</h2>
             <div class="carousel-nav">
@@ -85,7 +83,7 @@
 
 
         <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div class="carousel"
+        <div class="carousel no-scrollbar no-padding"
             bind:this={carouselRef}
             on:mousedown="{start}"
             on:mouseup="{end}"
@@ -96,45 +94,49 @@
             <slot/>
 
         </div>
-    </div>
 
-</section>
 
 
 
 
 
 <style>
-    section {
-        margin-top: 120px;
-    }
 
-    .carousel-header {
+
+     /* .carousel-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }  */
+
+    .carousel-header {
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        grid-auto-flow: row;
+        margin-bottom: 30px;
+        gap: 20px;
     }
 
     h2 {
         font-size: var(--h1);
-        text-align: center;
-        margin-bottom: 30px;
     }
 
     .carousel {
         overflow-x: auto;
-		scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
         display: flex;
         scroll-behavior: smooth;
         --webkit-overflow-scrolling: touch;
         gap: 20px;
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        scroll-padding: 15px;
+        grid-auto-columns: 85%;
+        grid-auto-flow: column;
     }
 
-    .carousel::-webkit-scrollbar { width: 0; }
 
-    .carousel { -ms-overflow-style: none; }
-
-    .carousel { overflow: -moz-scrollbars-none; }
 
     :global.carousel > * {
 		scroll-snap-align: center;
@@ -153,7 +155,7 @@
     }
 
     .carousel-nav {
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         gap: 15px;
@@ -185,4 +187,17 @@
         cursor:auto;
     }
 
+    @media(min-width: 992px) {
+        .carousel {
+            grid-auto-columns: calc(50% - 10px);
+        }
+        .carousel-header {
+            grid-auto-flow: column;
+        }
+
+        .carousel-nav {
+            display: flex;
+        }
+
+    }
 </style>

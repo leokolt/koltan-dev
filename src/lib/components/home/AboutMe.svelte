@@ -51,8 +51,9 @@
     }
 
     .inner {
-        display: flex;
+        display: grid;
         gap: 30px;
+        grid-template-columns: 1fr;
     }
 
     .nums {
@@ -109,6 +110,14 @@
         width: 200px;
         width: 100%;
         height: auto;
+    }
+
+    @media(min-width: 992px) {
+        .inner {
+            gap: 30px;
+            grid-template-columns: 6fr 2fr 3fr;
+            align-items: center;
+        }
     }
 
 </style>

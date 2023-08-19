@@ -61,14 +61,12 @@
     }
 
     .skills-inner {
-        display: flex;
+        display: grid;
         gap: 30px;
-        flex-wrap: wrap;
-        flex-direction: column;
+        grid-template-columns: auto;
     }
 
     .skillbox {
-        flex: 1 1 calc((100% / 3) - 20px);
         border-radius: 30px;
         border: 3px solid var(--color-primary);
         text-decoration: none;
@@ -94,7 +92,7 @@
 
     @media(min-width: 992px) {
         .skills-inner {
-            flex-direction: row;
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 </style>

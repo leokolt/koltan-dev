@@ -1,4 +1,5 @@
 <script>
+    import ContactForm from "../chunks/ContactForm.svelte";
     import Modal from "../globals/Modal.svelte";
     let showModal = false;
 </script>
@@ -35,14 +36,16 @@
     </div>
 </section>
 
-<Modal bind:showModal/>
+<Modal bind:showModal>
+    <ContactForm />
+</Modal>
 
 <style>
     section {
         background: var(--color-accent);
         margin-top: 130px;
         position: relative;
-        padding: 80px 0;
+        padding: calc(2.5 * var(--unit-3)) 0;
     }
 
     section:before {
@@ -68,8 +71,10 @@
     }
 
     .callback-inner {
-        display: flex;
+        display: grid;
         align-items: center;
+        gap: var(--unit-3);
+        grid-auto-flow: row;
     }
 
     .callback-info {
@@ -102,7 +107,7 @@
 
     .round .svgin {
         position: absolute;
-        width: 100px;
+        width: 60px;
         height: auto;
     }
 
@@ -115,6 +120,8 @@
         border-radius: 999px;
         background: var(--color-bg);
         padding: 0;
+        width: 200px;
+        height: 200px;
     }
 
       .text {
@@ -123,6 +130,21 @@
         font-size: 20px;
         fill: var(--color-primary);
         font-family: 'Work Sans';
+      }
+
+      @media(min-width: 992px) {
+        .callback-inner {
+            grid-auto-flow: column;
+        }
+
+        svg#rotatingText {
+            width: auto;
+            height: auto;
+        }
+
+        .round .svgin {
+            width: 100px;
+        }
       }
 
 </style>

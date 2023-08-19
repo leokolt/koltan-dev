@@ -97,7 +97,7 @@ on:click="{() => menuShow = !menuShow}">
         height: 32px;
         line-height: 1;
         font-weight: 700;
-        margin-left: 10px;
+        margin-left: var(--unit-3);
         position: relative;
         z-index: 2;
         box-shadow: 0px 0px 0px var(--color-accent);

@@ -38,12 +38,12 @@
 </script>
 
 <section>
-    <Arc width="120px" height="100%" left="0" top="40%"/>
-    <CircleInCircle width="90px" height="90px" left="90%" top="10%"/>
+    <Arc className="arc-icon" width="120px" height="100%" left="0" top="40%"/>
+    <CircleInCircle className="cic-icon" width="90px" height="90px" left="90%" top="10%"/>
     <div class="wrapper">
         <h2>Почему именно я?</h2>
         <div class="benefits-inner">
-            <div class="benefits-titles">
+            <div class="benefits-titles no-padding no-scrollbar">
                 {#each benefits as benefit, i}
                     <button class="tab btn" class:active={i === activeTab} on:click={() => (activeTab = i)}>
                         {benefit.title}
@@ -63,9 +63,19 @@
 </section>
 
 <style>
+    :global.cic-icon {
+        display: none;
+    }
+
+    :global.arc-icon {
+        display: none;
+    }
+
     section {
-        margin-top: 120px;
         position: relative;
+        overflow: hidden;
+        padding-bottom: var(--unit-3);
+        margin-bottom: calc(-1 * var(--unit-3));
     }
 
     h2 {
@@ -74,12 +84,19 @@
     }
 
     .benefits-inner {
-        display: flex;
+        display: grid;
         align-items: center;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .benefits-titles {
-        flex: 1 1 40%;
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        overflow-x: auto;
+        --webkit-overflow-scrolling: touch;
+        padding-bottom: var(--unit);
     }
 
     .tab.active {
@@ -89,26 +106,50 @@
     .btn {
         font-size: var(--p3);
         padding: 10px 20px;
-        display: inline-block;
+        margin-top: 0;
         margin-right: 10px;
         background-color: var(--color-bg);
-    }
-
-    .benefits-content {
-        flex: 1 1 60%;
+        display: inline-block;
     }
 
     .content {
-        margin-left: 10px;
         border-radius: var(--radius);
         border: var(--border);
         font-size: var(--p);
         line-height: 1.3;
         color: var(--color-primary);
-        padding: 30px;
+        padding: var(--unit-3);
         box-shadow: 10px 10px 0 var(--color-accent);
         height: 100%;
         background-color: var(--color-bg)
+    }
+
+    @media(min-width: 992px) {
+        section {
+            overflow: unset;
+        }
+
+        .benefits-inner {
+            grid-template-columns: 2fr 3fr;
+        }
+
+        .benefits-titles {
+            display: block;
+            overflow-x: unset;
+            padding-bottom: 0;
+        }
+
+        .btn {
+            margin-bottom: var(--unit);
+        }
+
+        :global.cic-icon {
+            display: block;
+        }
+
+        :global.arc-icon {
+            display: block;
+        }
     }
 
 </style>
