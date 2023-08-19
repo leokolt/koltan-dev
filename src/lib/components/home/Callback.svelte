@@ -99,6 +99,7 @@
         width: fit-content;
         border-radius: 999px;
         cursor: pointer;
+        position: relative;
     }
 
     .round:hover {
@@ -129,7 +130,6 @@
         letter-spacing: 4.4px;
         font-size: 20px;
         fill: var(--color-primary);
-        font-family: 'Work Sans';
       }
 
       @media(min-width: 992px) {

@@ -97,7 +97,7 @@
       display: grid;
       align-items: center;
       justify-items: center;
-      flex: none;
+      position: relative;
     }
 
     .rotate img {
