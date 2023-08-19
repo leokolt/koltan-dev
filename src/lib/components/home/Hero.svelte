@@ -69,7 +69,7 @@
     }
 
     .hero-content {
-        padding: 80px 0;
+        padding: calc(3.5 * var(--unit-3)) 0;
         position: relative;
     }
 

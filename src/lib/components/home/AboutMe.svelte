@@ -47,7 +47,7 @@
 <style>
 
     section {
-        margin-top: 120px;
+        margin-top: calc(4 * var(--unit-3));
     }
 
     .inner {

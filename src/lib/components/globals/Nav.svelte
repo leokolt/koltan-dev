@@ -80,7 +80,11 @@ on:click="{() => menuShow = !menuShow}">
 
     .active {
         text-decoration: underline wavy var(--color-reserve) 2px;
+        -webkit-text-decoration: underline wavy var(--color-reserve) 2px;
         text-underline-offset: 1px;
+        -webkit-text-underline-offset: 1px;
+        /* -webkit-text-decoration-line: line-through;
+        -webkit-text-decoration-color: var(--color-reserve); */
     }
 
     .menu-toggle {

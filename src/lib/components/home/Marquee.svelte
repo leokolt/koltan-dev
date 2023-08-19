@@ -36,7 +36,7 @@
         display: flex;
         color: #fff;
         background: #292929;
-        margin-top: 80px;
+        margin-top: 0;
         border-bottom: 3px solid var(--color-yellow);
         border-top: 3px solid var(--color-yellow);
         transform: skewY(-1deg);
@@ -82,6 +82,12 @@
         }
         100% {
             transform: translateX(-200%);
+        }
+    }
+
+    @media(max-width: 992px) {
+        section {
+            margin-top: calc(3.5 * var(--unit-3));
         }
     }
 </style>
