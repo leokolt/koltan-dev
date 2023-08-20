@@ -43,7 +43,7 @@ on:click="{() => menuShow = !menuShow}">
     <span></span>
 </button>
 
-<style>
+<style lang="postcss">
     nav {
         position: absolute;
         top: -100%;

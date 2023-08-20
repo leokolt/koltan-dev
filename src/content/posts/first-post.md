@@ -4,7 +4,7 @@ date: 2022-12-14
 tags:
   - numbers
   - odd
-draft: true
+reading: 10
 published: true
 ---
 
@@ -12,6 +12,7 @@ Hello, I am _Post One._
 
 **Nice to meet you!**
 
+Всем привет Меня зовут Леонид, я классный парнишка и мощный парень. Я хочу помочь вам разобраться со всякими неприятностями. Однако здравствуйте пидарки
 
 ```html (src/routes/+page.svelte) {3-5}
 <script>

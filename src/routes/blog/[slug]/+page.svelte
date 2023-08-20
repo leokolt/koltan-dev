@@ -1,24 +1,13 @@
 <script>
     export let data
     import NextPrevPosts from '$lib/components/chunks/NextPrevPosts.svelte';
-    import { onMount } from "svelte";
+    //import { onMount } from "svelte";
     import RelatedPosts from '$lib/components/chunks/RelatedPosts.svelte';
     import { dateFormat } from '$lib/utils/dateFormat.js';
-    import {readingTime} from '$lib/utils/readingTime.js'
+    import { plural } from "$lib/utils/pluralWord";
 
     import {transliterate} from '$lib/utils/latToRus.js'
     import Seo from '$lib/components/globals/Seo.svelte';
-
-
-let timeToRead = 0
-
-onMount(() => {
-        const content = document.querySelector(".text")?.textContent;
-        // console.log(content)
-        if (content) {
-            timeToRead = readingTime(content);
-        }
-    })
 
 </script>
 
@@ -36,7 +25,7 @@ onMount(() => {
 
 <article>
     <h1>{ data.title }</h1>
-    <p  title={timeToRead}>{timeToRead}</p>
+    <p  title={data.reading}>{plural((data.reading), ' минута', ' минуты', ' минут')}</p>
     {#if data.tags.length}
     <ul>
         {#each data.tags as tag}
