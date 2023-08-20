@@ -62,10 +62,10 @@ html, body {
 	--h3: 26px;
 	--h4: 24px;
 	--h5: 20px;
-	/* --p: 17px; */
-    --p: calc(15px + 0.390625vw);
-	--p2: 14px;
-	--p3: 12px;
+	--p: 18px;
+    /* --p: calc(17px + 0.300625vw); */
+	--p2: 16px;
+	--p3: 14px;
 
 
     --color-primary: #292929;
@@ -105,7 +105,7 @@ html, body {
 		--h3: 32px;
 		--h4: 24px;
 		--h5: 20px;
-		/* --p: 18px; */
+		--p: 19px;
 		--p2: 16px;
 		--p3: 14px;
 	}
@@ -119,7 +119,7 @@ html, body {
 		--h3: 36px;
 		--h4: 28px;
         --h5: 24px;
-		/* --p: 19px; */
+		--p: 19px;
 		--p2: 17px;
 		--p3: 15px;
 	}
