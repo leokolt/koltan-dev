@@ -105,11 +105,12 @@
 
     .btn {
         font-size: var(--p3);
-        padding: 10px 20px;
+        padding: .7rem 1.2rem;
         margin-top: 0;
-        margin-right: 10px;
+        margin-right: .7rem;
         background-color: var(--color-bg);
         display: inline-block;
+        font-weight: 400;
     }
 
     .content {
@@ -119,7 +120,7 @@
         line-height: 1.3;
         color: var(--color-primary);
         padding: var(--unit-3);
-        box-shadow: 10px 10px 0 var(--color-accent);
+        box-shadow: .7rem .7rem 0 var(--color-accent);
         height: 100%;
         background-color: var(--color-bg)
     }

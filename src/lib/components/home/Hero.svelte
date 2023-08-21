@@ -63,11 +63,6 @@
     section {
         position: relative;
     }
-    .hero-inner {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
 
     .hero-content {
         padding: calc(3.5 * var(--unit-3)) 0;
@@ -102,7 +97,6 @@
         text-underline-offset: 20px;
         -webkit-text-underline-offset: 20px;
         font-weight: 900;
-        display: flex
     }
 
     h1 .brackets {

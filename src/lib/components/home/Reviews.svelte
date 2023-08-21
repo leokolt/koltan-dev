@@ -33,7 +33,7 @@
 
 <style>
     section {
-        margin-top: 120px;
+        margin-top: calc(4 * var(--unit-3));
     }
 
     h2 {
@@ -43,7 +43,7 @@
 
     .reviews-inner {
         column-count: 1;
-        column-gap: 20px;
+        column-gap: var(--unit-2);
     }
 
     .reviews-item {
@@ -51,10 +51,10 @@
         border: var(--border);
         line-height: 1.3;
         color: var(--color-primary);
-        padding: 15px 20px;
+        padding: var(--unit-2);
         page-break-inside: avoid;
         break-inside: avoid;
-        margin-bottom: 20px;
+        margin-bottom: var(--unit-2);
         color: #292929;
     }
 
@@ -74,8 +74,8 @@
     .reviews-item-header {
         display: flex;
         align-items: center;
-        gap: 15px;
-        margin-bottom: 10px;
+        gap: var(--unit);
+        margin-bottom: var(--unit);
     }
 
     h3 {
@@ -83,8 +83,8 @@
     }
 
     img {
-        width: 40px;
-        height: 40px;
+        width: 2rem;
+        height: 2rem;
         object-fit: cover;
         border-radius: var(--radius);
     }
@@ -110,6 +110,11 @@
     @media(min-width: 992px) {
         .reviews-inner {
             column-count: 3;
+        }
+
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
         }
     }
 

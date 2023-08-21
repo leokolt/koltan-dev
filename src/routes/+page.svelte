@@ -9,9 +9,9 @@
     import Works from "$lib/components/home/Works.svelte";
     import Callback from "$lib/components/home/Callback.svelte";
     import Reviews from "../lib/components/home/Reviews.svelte";
+    import Price from "$lib/components/home/Price.svelte";
 
-    import Modal from "$lib/components/globals/Modal.svelte";
-    let showModal = false;
+
 
 </script>
 <Seo title="Сайт разработчика Колтан Леонида" description="Различные работы по сайтам - от простых правок до создания полноценных продуктов" type="WebPage" />
@@ -24,10 +24,4 @@
 <Callback />
 <Benefits />
 <Reviews/>
-
-<button class="round" on:click={() => (showModal = true)}>Кнопка2</button>
-
-<button class="round" on:click={() => (showModal = true)}>Кнопка</button>
-<Modal bind:showModal>
-    Жопао
-</Modal>
+<Price />

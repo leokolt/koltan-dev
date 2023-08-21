@@ -114,8 +114,8 @@
         align-items: center;
         justify-content: space-between;
         grid-auto-flow: row;
-        margin-bottom: 30px;
-        gap: 20px;
+        margin-bottom: var(--unit-3);
+        gap: var(--unit-2);
     }
 
     h2 {
@@ -191,6 +191,7 @@
         .carousel {
             grid-auto-columns: calc(50% - 10px);
         }
+
         .carousel-header {
             grid-auto-flow: column;
         }

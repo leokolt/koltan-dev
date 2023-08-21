@@ -40,7 +40,6 @@
     <p>Published: {dateFormat(data.date)}</p>
     <div class="wrapper-read">
         <svelte:component this={data.content}/>
-
     </div>
 
 </article>
@@ -53,5 +52,7 @@
     .wrapper-read {
         max-width: 800px;
         margin: auto;
+        padding: 0 15px;
+        font-size: var(--read-font);
     }
 </style>

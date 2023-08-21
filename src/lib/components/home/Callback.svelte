@@ -83,7 +83,6 @@
         text-transform: uppercase;
         font-weight: 900;
         line-height: 1.2;
-        padding-right: 50px;
     }
 
     .callback-btn {
