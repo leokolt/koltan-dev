@@ -1,11 +1,12 @@
 ---
 title: Post One
-date: 2022-12-14
+date: "2022-12-14"
 tags:
   - numbers
   - odd
 reading: 10
 published: true
+description: Всем привет Меня зовут Леонид, и я - классный парнишка
 ---
 
 Hello, I am _Post One._

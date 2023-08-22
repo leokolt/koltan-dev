@@ -100,7 +100,7 @@
 
 <style>
     .page {
-        margin-top: 20px;
+        margin-top: var(--unit-2);
     }
     h1 {
         font-size: var(--h1);
@@ -119,7 +119,7 @@
     }
 
     .page-works {
-        margin-top: 30px;
+        margin-top: var(--unit-3);
     }
 
     h4 {

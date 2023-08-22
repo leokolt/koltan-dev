@@ -21,7 +21,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<div class="work-item" class:full={full === true} class:сarousel-item={full === false} tabindex="0">
+<article class="work-item" class:full={full === true} class:сarousel-item={full === false} tabindex="0">
     <div class="content">
         <h3>{title}</h3>
         {#if full === false}
@@ -50,7 +50,7 @@
     </div>
 
 
-</div>
+</article>
 
 <style>
     .work-item {

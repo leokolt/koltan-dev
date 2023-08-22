@@ -38,7 +38,7 @@
 
 
 <Modal bind:showModal>
-    Жопао
+    text
 </Modal>
 
 
@@ -50,7 +50,7 @@
 
     .price-inner {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         gap: var(--unit-3);
     }
 
@@ -114,8 +114,8 @@
     }
 
     @media(min-width: 992px) {
-
+        .price-inner {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 </style>
-
-<!-- markup (zero or more items) goes here -->

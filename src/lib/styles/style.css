@@ -253,6 +253,8 @@ code span.highlight-line {
     border-left-style: solid;
 }
 
+@media(min-width: 992px) {
+}
 
 /*
 Точка останова              Цель

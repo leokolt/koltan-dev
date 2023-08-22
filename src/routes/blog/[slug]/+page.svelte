@@ -4,17 +4,12 @@
     //import { onMount } from "svelte";
     import RelatedPosts from '$lib/components/chunks/RelatedPosts.svelte';
     import { dateFormat } from '$lib/utils/dateFormat.js';
-    import { plural } from "$lib/utils/pluralWord";
+    import { plural } from "$lib/utils/pluralWord.js";
 
     import {transliterate} from '$lib/utils/latToRus.js'
     import Seo from '$lib/components/globals/Seo.svelte';
 
 </script>
-
-<!-- <svelte:head>
-  <title>My blog - {data.title}</title>
-  <meta property="og:title" content={data.title} />
-</svelte:head> -->
 
 <Seo
     description={data.description}

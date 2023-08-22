@@ -2,6 +2,12 @@
     import { onMount } from 'svelte';
 
     export let title = 'Заголовок секции'
+    export let show2 = false
+    export let show3 = false
+    export let show4 = false
+    export let gap1 = false
+    export let gap2 = false
+    export let gap3 = false
 
     let carouselRef;
     let carouselItemRef;
@@ -22,7 +28,7 @@
     const scrollToRight = (e) => {
         e.preventDefault();
         carouselRef.scrollBy({
-            left: carouselItemRef.clientWidth,
+            left: carouselItemRef.offsetWidth,
             top: 0,
             behavior: 'smooth',
         });
@@ -33,7 +39,7 @@
     const scrollToLeft = (e) => {
         e.preventDefault();
         carouselRef.scrollBy({
-            left: -carouselItemRef.clientWidth,
+            left: -carouselItemRef.offsetWidth,
             top: 0,
             behavior: 'smooth',
         });
@@ -89,25 +95,18 @@
             on:mouseup="{end}"
             on:mouseleave="{end}"
             on:mousemove="{move}"
+            class:carousel-2={show2 === true}
+            class:carousel-3={show3 === true}
+            class:carousel-4={show4 === true}
+            class:carousel-gap-1={gap1 === true}
+            class:carousel-gap-2={gap2 === true}
+            class:carousel-gap-3={gap3 === true}
         >
-
             <slot/>
-
         </div>
-
-
-
-
-
 
 <style>
 
-
-     /* .carousel-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }  */
 
     .carousel-header {
         display: grid;
@@ -123,30 +122,56 @@
     }
 
     .carousel {
+        --carousel-gap: 1rem;
+        --carousel-items-count: 3;
+        --carousel-gap-total: calc(var(--carousel-gap) * (var(--carousel-items-count) - 1) / var(--carousel-items-count));
+        --carousel-item-width: calc(100% / var(--carousel-items-count) - var(--carousel-gap-total));
+    }
+
+    .carousel-2 {
+        --carousel-items-count: 2;
+    }
+
+    .carousel-3 {
+        --carousel-items-count: 3;
+    }
+
+    .carousel-4 {
+        --carousel-items-count: 4;
+    }
+
+    .carousel-gap-1 {
+        --carousel-gap: var(--unit);
+    }
+    .carousel-gap-2 {
+        --carousel-gap: var(--unit-2);
+    }
+    .carousel-gap-3 {
+        --carousel-gap: var(--unit-3);
+    }
+
+    .carousel {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         display: flex;
         scroll-behavior: smooth;
         --webkit-overflow-scrolling: touch;
-        gap: 20px;
+        gap: var(--carousel-gap);
         display: grid;
-        /* grid-template-columns: 1fr 1fr; */
         scroll-padding: 15px;
+        grid-auto-columns: 85%;
+        grid-auto-flow: column;
+        position: relative;
+    }
+
+    .carousel {
         grid-auto-columns: 85%;
         grid-auto-flow: column;
     }
 
-
-
-    :global.carousel > * {
-		scroll-snap-align: center;
-		scroll-snap-stop: always;
-	}
-
-
     :global.carousel > * {
         scroll-snap-align: start;
-		scroll-snap-stop: always;
+		/* scroll-snap-stop: always; */
         cursor: grab;
     }
 
@@ -189,7 +214,7 @@
 
     @media(min-width: 992px) {
         .carousel {
-            grid-auto-columns: calc(50% - 10px);
+            grid-auto-columns: var(--carousel-item-width);
         }
 
         .carousel-header {

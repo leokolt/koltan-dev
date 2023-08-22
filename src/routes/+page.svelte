@@ -10,6 +10,8 @@
     import Callback from "$lib/components/home/Callback.svelte";
     import Reviews from "../lib/components/home/Reviews.svelte";
     import Price from "$lib/components/home/Price.svelte";
+    import Links from "../lib/components/home/Links.svelte";
+  import Posts from "../lib/components/home/Posts.svelte";
 
 
 
@@ -25,3 +27,5 @@
 <Benefits />
 <Reviews/>
 <Price />
+<Links />
+<Posts />
