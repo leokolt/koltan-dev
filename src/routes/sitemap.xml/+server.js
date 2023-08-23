@@ -1,6 +1,6 @@
 import { getMarkdownPosts } from '$lib/utils/getPosts'
 
-//const posts = [] //list of posts containing a slug [{title: "Test title", slug: "test-title", updatedAt: "2023-01-01"}]
+export const prerender = true
 
 const pages = ["about", "blog", "contact", "works"] //list of pages as a string ex. ["about", "blog", "contact"]
 
