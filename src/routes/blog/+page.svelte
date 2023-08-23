@@ -4,10 +4,11 @@
     import BlogItem from '$lib/components/BlogItem.svelte';
     //import { dateFormat } from '$lib/utils/dateFormat.js';
 
-    let visiblePosts = 8;
+    let visiblePosts = 8; //число изначально отображаемых постов
+    let loadPosts = 6; //число подгружаемых статей
 
     function loadMore() {
-      visiblePosts += 6;
+      visiblePosts += loadPosts;
       sessionStorage.setItem('visiblePosts', visiblePosts);
     }
 
@@ -17,14 +18,28 @@
         visiblePosts = parseInt(storedVisiblePosts);
       }
     });
+
+    let posts = data.posts
+
+    let searchValue = ''
+
+    $: searchedPosts = posts.filter((post) => {
+        const searchContent =  post.meta.title + post.meta.description
+        //return post.meta.title.includes(searchTerm) || post.meta.description.includes(searchTerm)
+        return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+    })
+
+    $: searchedPosts.slice(0, visiblePosts);
+
   </script>
 
 <div class="page">
     <div class="wrapper">
         <h1>Блог</h1>
+        <input type="text" placeholder="Найти статьи" bind:value={searchValue} />
         <div class="page-blog">
-            {#each data.posts.slice(0, visiblePosts) as {slug, meta: { title, description, date, tags, reading }} }
-                <BlogItem {slug} {title} {date} {tags} {description} {reading}  full={true}/>
+            {#each searchedPosts.slice(0, visiblePosts) as {slug, meta: { title, description, date, tags }} }
+                <BlogItem {slug} {title} {date} {tags} {description}  full={true}/>
             {/each}
         </div>
     </div>
@@ -58,6 +73,24 @@
   </button>
 
   <style>
+    input {
+        margin: var(--unit-3) 0 0;
+        width: 40%;
+        border: var(--border);
+        border-radius: var(--radius);
+        padding: var(--unit) var(--unit-2);
+        font-size: var(--p);
+        background: var(--color-bg);
+        color: var(--color-primary);
+        transition: var(--transition-cubic);
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: var(--shadow);
+        transition: var(--transition-cubic);
+    }
+
     .page {
         margin-top: var(--unit-2);
     }

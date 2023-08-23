@@ -34,10 +34,12 @@
     }
 
 
-    let visiblePosts = 1;
+    let visiblePosts = 8; //число изначально отображаемых постов
+    let loadPosts = 6; //число подгружаемых статей
+
 
     function loadMore() {
-      visiblePosts += 1;
+      visiblePosts += loadPosts;
       //sessionStorage.setItem('visiblePosts', visiblePosts);
     }
 
