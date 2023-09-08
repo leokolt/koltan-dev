@@ -45,8 +45,10 @@
         transform: translateX(-50%);
         width: calc(100% - 30px);
         background-color: var(--color-fg);
+        color: #f7f7f7;
         border-radius: var(--radius);
         border: var(--border);
+        border-color: #f7f7f7;
         padding: var(--unit) var(--unit-3);
         display: flex;
         justify-content: center;
@@ -66,6 +68,8 @@
         font-weight: 400;
         margin-top: 0;
         margin-left: var(--unit-3);
+        color: #f7f7f7;
+        border-color: #f7f7f7;
     }
 
     @media(min-width: 992px) {

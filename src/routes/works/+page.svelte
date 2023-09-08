@@ -32,8 +32,8 @@
         });
     }
 
-    let visiblePosts = 8; //число изначально отображаемых постов
-    let loadPosts = 6; //число подгружаемых статей
+    let visiblePosts = 5; //число изначально отображаемых постов
+    let loadPosts = 5; //число подгружаемых статей
 
     function loadMore() {
       visiblePosts += loadPosts;
@@ -80,7 +80,7 @@
                     type="button"
                     class="btn"
                     disabled={visiblePosts >= filteredWork.length}>
-                        {visiblePosts < filteredWork.length ? 'Больше работ' : 'Нет работ'}
+                        {visiblePosts < filteredWork.length ? 'Еще работы' : 'Больше нет работ'}
                 </button>
             {/if}
         </div>

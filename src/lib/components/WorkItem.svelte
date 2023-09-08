@@ -47,7 +47,7 @@
     <div class="image">
         <img src={image} alt={title}>
         {#if full}
-            <a href={link} target="_blank" >Перейти 🡭</a>
+            <a href={link} target="_blank" >Перейти &#129141;</a>
         {/if}
     </div>
 
