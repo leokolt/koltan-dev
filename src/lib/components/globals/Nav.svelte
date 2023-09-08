@@ -46,7 +46,7 @@ on:click="{() => menuShow = !menuShow}">
 <style lang="postcss">
     nav {
         position: absolute;
-        top: -100%;
+        top: -300%;
         background: var(--color-bg);
         width: 100%;
         left: 0;

@@ -35,7 +35,7 @@
         overflow: hidden;
         display: flex;
         color: #fff;
-        background: #292929;
+        background: var(--color-fg);
         margin-top: 0;
         border-bottom: 3px solid var(--color-yellow);
         border-top: 3px solid var(--color-yellow);

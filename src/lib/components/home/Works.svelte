@@ -1,7 +1,7 @@
 <script>
     import works from "../../../content/works/works.json";
     import WorkItem from "../WorkItem.svelte";
-    import Carousel from "../chunks/Carousel.svelte";
+    import Carousel from "../globals/Carousel.svelte";
 </script>
 
 <section>

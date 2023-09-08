@@ -1,13 +1,19 @@
 export const transliterate = (word) =>  {
 	const converter = {
+        yu: "ю",
+        ya: "я",
+        kh: "х",
+        ch: "ч",
+        sh: "ш",
+        sch: "щ",
+        yo: "ё",
+        zh: "ж",
+        ts: "ц",
         a: "а",
         b: "б",
         v: "в",
         g: "г",
         d: "д",
-        e: "е",
-        yo: "ё",
-        zh: "ж",
         z:" з",
         i: "и",
         y: "й",
@@ -22,29 +28,27 @@ export const transliterate = (word) =>  {
         t: "т",
         u: "у",
         f: "ф",
-        kh: "х",
-        ts: "ц",
-        ch: "ч",
-        sh: "ш",
-        sch: "щ",
         "": "",
-        y: "ы",
+        y: "и",
         "": "",
         e: "э",
-        yu: "ю",
-        ya: "я",
-        "-": " "
+        e: "е",
+        "-": " ",
+
+
 	};
 
+    //const excludedWords = ["css", "svelte", "html", "o-zhope"];
+
+
 	if (word.indexOf("-") >= 0) {
+        //if(word === word.toUpperCase()) {
 
 		word = word.toLowerCase();
-		//word = word.replace(/-/g, ' ');
-		//word = word.replace("*", '');
 
-		for (const [key, value] of Object.entries(converter)) {
-			word = word.replaceAll(key, value);
-		}
+        for (const [key, value] of Object.entries(converter)) {
+            word = word.replaceAll(key, value);
+        }
 
 		return word;
 

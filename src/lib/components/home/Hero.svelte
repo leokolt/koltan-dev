@@ -92,17 +92,17 @@
         -webkit-text-decoration-style: wavy;
         text-decoration-color: var(--color-reserve);
         -webkit-text-decoration-color: var(--color-reserve);
-        text-decoration-thickness: 8px;
-        -webkit-text-decoration-thickness:  8px;
-        text-underline-offset: 20px;
-        -webkit-text-underline-offset: 20px;
+        text-decoration-thickness: var(--unit);
+        -webkit-text-decoration-thickness:  var(--unit);
+        text-underline-offset: var(--unit-2);
+        -webkit-text-underline-offset: var(--unit-2);
         font-weight: 900;
     }
 
     h1 .brackets {
         font-family: monospace;
         font-weight: 900;
-        letter-spacing: 10px;
+        letter-spacing: var(--unit);
     }
 
     h1 .brackets:before {
@@ -122,13 +122,13 @@
     }
 
     .blob-wp {
-        bottom: 0;
+        bottom: 10%;
         right: 30%;
         width: 64px;
     }
 
     .blob-svelte {
-        top: 0;
+        top: 10%;
         left: 0;
         width: 84px;
     }

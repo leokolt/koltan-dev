@@ -71,6 +71,7 @@ html, body {
 
     --color-primary: #292929;
     --color-bg: #F7F7F7;
+    --color-fg: #201f1f;
     --color-accent: #F7C90D;
     --color-second: #ED6F35;
     --color-reserve: #64BAAA;
@@ -209,11 +210,18 @@ section {
 
 /*code highlight*/
 
+p code {
+    background: #24292E;
+    color: #bad0d9;
+    border-radius: 5px;
+    padding: 1px;
+}
+
 pre {
     overflow: auto;
     overflow-wrap: break-word;
     padding: 1rem 0;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
     white-space: pre-wrap;
     border-radius: 0 0 1.2rem 1.2rem;
     display: block;

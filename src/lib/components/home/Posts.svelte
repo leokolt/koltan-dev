@@ -6,7 +6,7 @@
 
     import { onMount } from 'svelte'
 
-    import Carousel from "../chunks/Carousel.svelte";
+    import Carousel from "../globals/Carousel.svelte";
     import {getMarkdownPosts} from '$lib/utils/getPosts.js'
     import BlogItem from '$lib/components/BlogItem.svelte';
 
@@ -24,8 +24,10 @@
     <div class="wrapper">
         {#if !isLoading}
             <Carousel title='Вот что пишу в блоге' show3={true} gap2={true}>
-                {#each posts as {slug, meta: { title, description, date }} }
-                    <BlogItem {title} {slug} {description} {date} full={false}/>
+                {#each posts as {slug, meta: { title, description, date, published }} }
+                    {#if published}
+                        <BlogItem {title} {slug} {description} {date} full={false}/>
+                    {/if}
                 {/each}
             </Carousel>
         {/if}

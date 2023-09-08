@@ -2,6 +2,7 @@
     export let data
     import {onMount} from 'svelte';
     import BlogItem from '$lib/components/BlogItem.svelte';
+    import Seo from '$lib/components/globals/Seo.svelte';
     //import { dateFormat } from '$lib/utils/dateFormat.js';
 
     let visiblePosts = 8; //число изначально отображаемых постов
@@ -31,7 +32,9 @@
 
     $: searchedPosts.slice(0, visiblePosts);
 
-  </script>
+</script>
+
+<Seo title="Блог" description="Статьи о технологиях, туториалы и личное мнение" type="Blog" />
 
 <div class="page">
     <div class="wrapper">
@@ -45,24 +48,6 @@
     </div>
 </div>
 
-  <!-- <h1>Блог</h1>
-
-  <p>Мои статьи для вас</p>
-
-  <ul>
-    {#each data.posts.slice(0, visiblePosts) as post}
-      <li>
-        <h2>
-          <a href={`/blog/${post.slug}`}>
-            {post.meta.title}
-          </a>
-        </h2>
-        Published {dateFormat(post.meta.date)}
-      </li>
-    {/each}
-  </ul> -->
-
-
  <button
     on:click={loadMore}
     id="loadmore"
@@ -75,7 +60,7 @@
   <style>
     input {
         margin: var(--unit-3) 0 0;
-        width: 40%;
+        width: 80%;
         border: var(--border);
         border-radius: var(--radius);
         padding: var(--unit) var(--unit-2);
@@ -89,6 +74,7 @@
         outline: none;
         box-shadow: var(--shadow);
         transition: var(--transition-cubic);
+        width: 90%;
     }
 
     .page {
@@ -99,16 +85,27 @@
     }
     .page-blog {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         gap: var(--unit-2);
         margin-top: var(--unit-3);
     }
 
-    :global.page-blog > article:first-child {
-        grid-column: 1 / 3;
-    }
+    @media(min-width: 992px) {
+        .page-blog {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        :global.page-blog > article:first-child {
+            grid-column: 1 / 3;
+        }
+        :global.page-blog > article:first-child h3 a {
+            font-size: var(--h3);
+        }
 
-    :global.page-blog > article:first-child h3 a {
-        font-size: var(--h3);
+        input {
+            width: 40%;
+        }
+        input:focus {
+            width: 50%;
+        }
     }
   </style>

@@ -4,6 +4,7 @@
     import '$lib/styles/style.css'
 
     import { fly } from 'svelte/transition'
+    import CookieConsent from '$lib/components/globals/CookieConsent.svelte';
     export let data
 
 
@@ -16,5 +17,7 @@
     <slot />
     </main>
 {/key}
+
+<CookieConsent />
 
 <Footer/>

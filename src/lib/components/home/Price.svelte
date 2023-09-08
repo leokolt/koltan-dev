@@ -1,11 +1,12 @@
 <script>
     import Modal from "$lib/components/globals/Modal.svelte";
+    import ContactForm from "../globals/ContactForm.svelte";
     let showModal = false;
 
     const prices = [
-        { title: 'По-мелочи', amount: 'от 500₽', desc: 'Небольшие правки и рекомендации', list: ['Мелкие правки', 'Рекомендация и консультация', 'Установка темы на WordPress', 'Стилизация небольших блоков' ] },
-        { title: 'По-мелочи', amount: 'от 500₽', desc: 'Небольшие правки и рекомендации', list: ['Мелкие правки', 'Рекомендация и консультация', 'Установка темы на WordPress', 'Стилизация небольших блоков' ] },
-        { title: 'По-мелочи', amount: 'от 500₽', desc: 'Небольшие правки и рекомендации', list: ['Мелкие правки', 'Рекомендация и консультация', 'Установка темы на WordPress', 'Стилизация небольших блоков' ] }
+        { title: 'По-мелочи', amount: 'от 500₽', desc: 'Небольшие правки и рекомендации по работе', list: ['Мелкие правки', 'Рекомендация и консультация', 'Установка темы и плагинов на WordPress', 'Стилизация небольших блоков', 'и многое другое' ] },
+        { title: 'По-среднему', amount: 'от 1500₽', desc: 'Сложные правки, верстка страниц и блоков', list: ['Сложные правки', 'Верстка страниц', 'Верстка и внедрение блоков на сайт', 'Ускорение и оптимизация сайтов', 'Создание не сложного функционала на сайтах', 'и многое другое' ] },
+        { title: 'По-крупному', amount: 'от 5000₽', desc: 'Создание сайтов, внедрение сложных функций', list: ['Создание сайтов на CMS, фреймворках и HTML', 'Верстка сайтов', 'Внедрение сложных функций на разных языках', 'и многое другое'] }
     ];
 
 </script>
@@ -38,7 +39,7 @@
 
 
 <Modal bind:showModal>
-    text
+   <ContactForm />
 </Modal>
 
 
@@ -94,28 +95,66 @@
     }
 
     ul {
-        padding-left: var(--unit-2);
+        padding-left: 0;
+        list-style: none;
+    }
+
+    li {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        line-height: 1.2;
+    }
+
+    li + li {
+        margin-top: var(--unit-2);
+    }
+
+
+    li:before {
+        content: '';
+        background: var(--color-accent);
+        width: var(--unit);
+        height: var(--unit);
+        display: block;
+        border-radius: 50%;
+        margin-right: var(--unit);
+        flex: none;
+        margin-top: 7px;
+    }
+
+    .price-item:nth-child(2) li:before {
+        background: var(--color-second);
+    }
+
+    .price-item:nth-child(3) li:before {
+        background: var(--color-reserve);
     }
 
     .btn {
         font-size: var(--p);
-        background-color: #292929;
+        background-color: var(--color-fg);
         color: #f7f7f7;
         padding: var(--unit);
         width: 100%;
+        border-color: var(--color-fg);
     }
 
     .price-notice {
         border: var(--border);
         border-radius: var(--radius);
         padding: var(--unit-2);
-        background: #292929;
+        background: var(--color-fg);
         color: #f7f7f7;
     }
 
     @media(min-width: 992px) {
         .price-inner {
             grid-template-columns: repeat(3, 1fr);
+        }
+
+        ul {
+            min-height: 16rem;
         }
     }
 </style>

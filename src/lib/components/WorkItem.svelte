@@ -1,4 +1,6 @@
 <script>
+    import { fly } from 'svelte/transition';
+
     export let title = ''
     export let excerpt = ''
     export let image = ''
@@ -21,7 +23,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<article class="work-item" class:full={full === true} class:сarousel-item={full === false} tabindex="0">
+<article class="work-item" class:full={full === true} class:сarousel-item={full === false} tabindex="0" transition:fly={{ delay: 0, duration: 200, x: 0, y: 100, opacity: 0.5}}>
     <div class="content">
         <h3>{title}</h3>
         {#if full === false}
@@ -65,9 +67,9 @@
     }
 
     .work-item.full {
-        flex-direction: row-reverse;
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: calc(2.5 * var(--unit-3));
+        flex-direction: column;
     }
 
     .image {
@@ -77,7 +79,7 @@
     }
 
     .work-item.full .image {
-        margin: 30px;
+        margin: var(--unit-3);
         flex: 1 1 35%;
         position: relative;
     }
@@ -96,7 +98,7 @@
     }
 
     .work-item.full .content {
-        padding-bottom: var(--unit-3);
+        padding-top: calc(2 * var(--unit-3));
     }
 
     time {
@@ -110,15 +112,18 @@
         font-size: var(--p);
         font-weight: 900;
         color: var(--color-primary);
-        padding: 10px 20px;
+        padding: var(--unit) var(--unit-2);
         margin-top: 0;
         transition: var(--transition-shadow);
         box-shadow: 0px 0px 0px var(--color-accent);
-        cursor: pointer;
         background: var(--color-accent);
         position: absolute;
-        right: -30px;
-        top: -30px;
+        /* right: -30px; */
+        top: calc(-1.5 * var(--unit-3));
+
+        right: unset;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     sup {
@@ -137,7 +142,7 @@
     a {
         cursor: pointer;
         margin-right: 15px;
-        padding: 10px 20px;
+        padding: var(--unit);
         border: var(--border);
         border-radius: var(--radius);
         position: absolute;
@@ -206,7 +211,7 @@
         text-decoration-color: var(--color-primary);
         text-underline-offset: 4px;
         display: inline-block;
-        z-index: 9999;
+        z-index: 9;
         position: relative;
         transition: var(--transition);
     }
@@ -216,12 +221,29 @@
     }
 
     @media(min-width: 992px) {
+        .work-item.full {
+            flex-direction: row-reverse;
+            margin-bottom: calc(1.5 * var(--unit-3));
+        }
+
+        .work-item.full .content {
+            padding-top: var(--unit-3);
+        }
         .content {
             padding: var(--unit-3);
         }
 
         .image {
             margin: auto var(--unit-3) var(--unit-3);
+            max-height: 16rem;
+            min-height: 16rem;
+        }
+
+        time {
+            right: calc(-1 * var(--unit-3));
+            transform: unset;
+            left: unset;
+            top: calc(-1 * var(--unit-3));
         }
     }
 

@@ -11,11 +11,14 @@
     import Reviews from "../lib/components/home/Reviews.svelte";
     import Price from "$lib/components/home/Price.svelte";
     import Links from "../lib/components/home/Links.svelte";
-  import Posts from "../lib/components/home/Posts.svelte";
+    import Posts from "../lib/components/home/Posts.svelte";
+    import Questions from "../lib/components/home/Questions.svelte";
+    import Steps from "../lib/components/home/Steps.svelte";
 
 
 
 </script>
+
 <Seo title="Сайт разработчика Колтан Леонида" description="Различные работы по сайтам - от простых правок до создания полноценных продуктов" type="WebPage" />
 
 <Hero />
@@ -29,3 +32,5 @@
 <Price />
 <Links />
 <Posts />
+<Questions />
+<Steps />

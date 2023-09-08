@@ -25,6 +25,7 @@
 	"type": "module",
 	"dependencies": {
 		"node-html-parser": "^6.1.5",
+		"rehype-external-links": "^2.1.0",
 		"shiki": "^0.14.3",
 		"typescript": "^5.1.6"
 	}

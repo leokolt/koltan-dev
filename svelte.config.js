@@ -3,12 +3,14 @@ import adapter from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess'
 import { mdsvex, escapeSvelte  } from 'mdsvex'
 import highlighter from './src/lib/utils/codeHighlLighter.js'
+import rehypeExternalLinks from 'rehype-external-links'
 
 const mdsvexOptions = {
 	extensions: ['.md'],
     highlight: {
         highlighter,
 	},
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]]
     //highlight: false,
 }
 

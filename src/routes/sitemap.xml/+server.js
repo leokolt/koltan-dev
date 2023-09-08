@@ -9,7 +9,9 @@ const website = "http://localhost:5173"
 /** @type {import('./$types').RequestHandler} */
 export async function GET({url}) {
     const allPosts = await getMarkdownPosts()
-    const posts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
+    const posts = allPosts.sort((a, b) => {
+        return new Date(b.meta.date) - new Date(a.meta.date)
+      }).filter(post => post.meta.published === true)
 
     const body = sitemap(posts, pages);
     const response = new Response(body);
@@ -39,7 +41,7 @@ const sitemap = (posts, pages) => `<?xml version="1.0" encoding="UTF-8" ?>
     <priority>0.7</priority>
   </url>
   `).join('')}
-  ${posts.map((post) => post.visible ? null : `
+  ${posts.map((post) => post.published ? null : `
   <url>
     <loc>${website}/blog/${post.slug}</loc>
     <changefreq>weekly</changefreq>

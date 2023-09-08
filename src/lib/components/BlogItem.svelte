@@ -1,4 +1,6 @@
 <script>
+    import { fly } from 'svelte/transition';
+
     import { dateFormat } from '$lib/utils/dateFormat.js'
     import {transliterate} from '$lib/utils/latToRus.js'
 
@@ -12,10 +14,10 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<article class="blog-item" class:full={full === true} class:сarousel-item={full === false} tabindex="0">
+<article class="blog-item" class:full={full === true} class:сarousel-item={full === false} tabindex="0" transition:fly={{ delay: 0, duration: 200, x: 0, y: 100, opacity: 0.5}}>
 
     <h3>
-        <a href="blog/{slug}">{title}</a>
+        <a href="/blog/{slug}">{title}</a>
     </h3>
 
     <time>{dateFormat(date)}</time>
@@ -47,7 +49,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         padding: var(--unit-3);
         padding-bottom: calc(var(--unit-3) + 1rem);
     }
@@ -121,14 +123,15 @@
         font-weight: 500;
         font-size: var(--p2);
         transition: var(--transition);
+        border: var(--border);
+        border-radius: var(--radius);
+        padding: 1px 10px 5px;
+        border-color: var(--color-second);
     }
 
     ul a:hover {
         color: var(--color-primary);
-    }
-
-    ul a:before {
-        content: '#';
+        border-color: var(--color-primary);
     }
 
 

@@ -21,6 +21,7 @@
     let atRightEnd = false; // новое состояние для отслеживания, докручена ли карусель до конца вправо
 
     function updateCarouselEnds() {
+        if (!carouselRef) return;
         atLeftEnd = carouselRef.scrollLeft === 0;
         atRightEnd = carouselRef.scrollLeft + carouselRef.offsetWidth >= carouselRef.scrollWidth;
     }
@@ -153,7 +154,6 @@
     .carousel {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        display: flex;
         scroll-behavior: smooth;
         --webkit-overflow-scrolling: touch;
         gap: var(--carousel-gap);

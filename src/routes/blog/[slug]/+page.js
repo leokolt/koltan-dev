@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 export async function load({ params }){
 
     const post = await import(`../../../content/posts/${params.slug}.md`)
-    const { title, date, tags, published, description, reading  } = post.metadata
+    const { title, date, tags, published, description, reading, update  } = post.metadata
     const content = post.default
 
 
@@ -18,6 +18,7 @@ export async function load({ params }){
       tags,
       published,
       description,
-      reading
+      reading,
+      update
     }
 }

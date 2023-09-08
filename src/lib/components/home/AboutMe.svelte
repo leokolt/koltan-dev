@@ -53,7 +53,7 @@
     .inner {
         display: grid;
         gap: 30px;
-        grid-template-columns: 1fr;
+        grid-template-columns: auto;
     }
 
     .nums {

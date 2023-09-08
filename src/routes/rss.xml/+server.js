@@ -8,9 +8,11 @@ export const prerender = true
 
 export const GET = async () => {
   const allPosts = await getMarkdownPosts()
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
+  const posts = allPosts.sort((a, b) => {
+    return new Date(b.meta.date) - new Date(a.meta.date)
+  }).filter(post => post.meta.published === true)
 
-  const body = render(sortedPosts)
+  const body = render(posts)
   const options = {
     headers: {
       'Cache-Control': 'max-age=0, s-maxage=3600',
@@ -38,7 +40,7 @@ ${posts
 <guid isPermaLink="true">${siteURL}/blog/${post.slug}</guid>
 <title>${post.meta.title}</title>
 <link>${siteURL}/blog/${post.slug}</link>
-<description>${post.meta.title}</description>
+<description>${post.meta.description}</description>
 <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>
 </item>`
   )

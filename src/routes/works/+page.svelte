@@ -1,10 +1,9 @@
 
 
 <script>
-    import { onMount } from "svelte";
-
     import  works from "../../content/works/works.json";
     import WorkItem from "$lib/components/WorkItem.svelte";
+    import Seo from "$lib/components/globals/Seo.svelte";
 
     const splitCats = works.flatMap((w) => w.categories.split(', '));
     const categories = Array.from(new Set(splitCats));
@@ -33,34 +32,24 @@
         });
     }
 
-
     let visiblePosts = 8; //число изначально отображаемых постов
     let loadPosts = 6; //число подгружаемых статей
 
-
     function loadMore() {
       visiblePosts += loadPosts;
-      //sessionStorage.setItem('visiblePosts', visiblePosts);
     }
-
-    // onMount(() => {
-    //     const storedVisiblePosts = sessionStorage.getItem('visiblePosts');
-    //     if (storedVisiblePosts) {
-    //         visiblePosts = parseInt(storedVisiblePosts);
-    //     }
-    // });
-
 
     $:  filteredWork.slice(0, visiblePosts);
 
-
 </script>
+
+<Seo title="Портфолио разработчика Колтан Леонида" description="Портфолио работ Колтан Леонида" type="WebPage" />
 
 <div class="page">
     <div class="wrapper">
         <h1>Портфолио</h1>
         <div class="filter">
-            <div>
+            <div class="no-scrollbar no-padding">
                 <button class="btn btn-filter" class:selected={!selectedCat || selectedCat === null} on:click={() => handleClickCategory("Все категории")}>
                     Все категории
                 </button>
@@ -68,7 +57,7 @@
                     <button class="btn btn-filter" class:selected={selectedCat === cat} on:click={() => handleClickCategory(cat)}>{cat}</button>
                 {/each}
             </div>
-            <div>
+            <div class="no-scrollbar no-padding">
                 <button class="btn btn-filter" class:selected={!selectedYear || selectedYear === null} on:click={() => handleClickYear("Все годы")}>
                     Все годы
                 </button>
@@ -86,13 +75,13 @@
                     <WorkItem {title} {image} {year} {link} {description} {categories} {collapse} full={true}/>
                 {/each}
                 <button
-                on:click={loadMore}
-                id="loadmore"
-                type="button"
-                class="btn"
-                disabled={visiblePosts >= filteredWork.length}>
-                    {visiblePosts < filteredWork.length ? 'Больше работ' : 'Нет работ'}
-            </button>
+                    on:click={loadMore}
+                    id="loadmore"
+                    type="button"
+                    class="btn"
+                    disabled={visiblePosts >= filteredWork.length}>
+                        {visiblePosts < filteredWork.length ? 'Больше работ' : 'Нет работ'}
+                </button>
             {/if}
         </div>
     </div>
@@ -121,11 +110,34 @@
     }
 
     .page-works {
-        margin-top: var(--unit-3);
+        margin-top: calc(2.5 * var(--unit-3));
     }
 
     h4 {
         font-size: var(--h4);
         text-align: center;
+    }
+
+    .filter > div {
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        --webkit-overflow-scrolling: touch;
+        gap: var(--unit-2);
+        display: grid;
+        scroll-padding: 15px;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        padding-bottom: var(--unit-2);
+    }
+
+    @media(min-width: 992px) {
+        .page-works {
+            margin-top: var(--unit-3);
+        }
+        .filter > div {
+            padding-bottom: 0;
+            display: block;
+            overflow: unset;
+        }
     }
 </style>

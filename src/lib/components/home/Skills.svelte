@@ -52,12 +52,12 @@
 
 <style>
     section {
-        margin-top: 120px;
+        margin-top: calc(4 * var(--unit-3));
     }
 
     h2 {
         font-size: var(--h1);
-        margin-bottom: 30px;
+        margin-bottom: var(--unit-3);
     }
 
     .skills-inner {

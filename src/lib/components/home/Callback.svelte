@@ -1,5 +1,5 @@
 <script>
-    import ContactForm from "../chunks/ContactForm.svelte";
+    import ContactForm from "../globals/ContactForm.svelte";
     import Modal from "../globals/Modal.svelte";
     let showModal = false;
 </script>
