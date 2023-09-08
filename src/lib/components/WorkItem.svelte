@@ -47,7 +47,7 @@
     <div class="image">
         <img src={image} alt={title}>
         {#if full}
-            <a href={link} target="_blank" >Перейти &#129141;</a>
+            <a href={link} target="_blank" >Перейти <span>🡭</span></a>
         {/if}
     </div>
 
@@ -161,6 +161,10 @@
 
     a:hover {
         background: var(--color-reserve)
+    }
+
+    a span {
+        font-family:Arial, Helvetica, sans-serif;
     }
 
     h3 {
