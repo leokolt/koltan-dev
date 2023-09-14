@@ -58,12 +58,13 @@
     .price-item {
         border: var(--border);
         border-radius: var(--radius);
+        overflow: hidden;
     }
 
     .price-item-header {
         padding: var(--unit-3);
         background: var(--color-accent);
-        border-radius: var(--radius) var(--radius) 0 0;
+        /* border-radius: var(--radius) var(--radius) 0 0; */
     }
 
     .price-item:nth-child(2) .price-item-header {

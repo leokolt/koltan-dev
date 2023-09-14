@@ -1,4 +1,4 @@
-import { plural } from "./pluralWord";
+import { plural } from "./pluralWord.js";
 
 export function readingTime(content) {
     const wordsPerMinute = 200;

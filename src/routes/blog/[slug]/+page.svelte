@@ -9,22 +9,12 @@
     import {transliterate} from '$lib/utils/latToRus.js'
     import Seo from '$lib/components/globals/Seo.svelte';
     import SharePost from '$lib/components/posts/SharePost.svelte';
+    import PostNotice from '$lib/components/posts/PostNotice.svelte';
+    import ProgressBar from '$lib/components/posts/ProgressBar.svelte';
+    export let articleElement = undefined
 
     // import { page } from '$app/stores'
     // import Comments from '$lib/components/posts/Comments.svelte';
-
-        // Определим начальную дату
-        const startDate = new Date(data.date); // Здесь нужно указать свою начальную дату 23 - 01 - 20
-
-        const startDateUpdate = new Date(data.update); // Здесь нужно указать свою начальную дату 23 - 01 - 20
-
-        // Добавим 190 дней к начальной дате
-        const targetDate = new Date(startDate.getTime() + (190 * 24 * 60 * 60 * 1000));
-
-        const targetDateUpdate = new Date(startDateUpdate.getTime() + (190 * 24 * 60 * 60 * 1000));
-
-        // Получим текущую дату
-        const currentDate = new Date();
 
 </script>
 
@@ -40,7 +30,6 @@
         <div class="wrapper">
             <div class="post-header">
                 <div class="post-header-title">
-
                     <h1>{ data.title }</h1>
                     {#if data.update}
                         <p>Обновлено {dateFormat(data.update)}<span class="post-meta-reading">{plural((data.reading), ' минута', ' минуты', ' минут')} на чтение</span></p>
@@ -56,16 +45,8 @@
     </header>
 
     <div class="wrapper-read">
-        {#if targetDateUpdate >= targetDate && currentDate > targetDateUpdate}
-            <div class="post-notice">
-                Обратите внимание, что данная статья была обновлена более полугода назад и некоторые данные в ней могли устареть. Если вы используете код из этой статьи в своем проекте и он не работает, <a href="/contact" target="_blank">напишите</a> мне об этом
-            </div>
-        {:else if targetDate > targetDateUpdate && currentDate > targetDate}
-            <div class="post-notice">
-                Обратите внимание, что данная статья была опубликована более полугода назад и некоторые данные в ней могли устареть. Если вы используете код из этой статьи в своем проекте и он не работает, <a href="/contact" target="_blank">напишите</a> мне об этом
-            </div>
-        {/if}
-        <div class="post-content">
+        <PostNotice publishDate={data.date} updateDate={data.update} />
+        <div class="post-content" bind:this={articleElement}>
             <svelte:component this={data.content}/>
         </div>
         {#if data.tags.length}
@@ -94,6 +75,8 @@
     </footer>
 
 </article>
+
+<ProgressBar bind:articleElement/>
 
 <style>
     article {
@@ -164,7 +147,7 @@
         margin-right: var(--unit-2);
     }
 
-    .wrapper-read {
+    :global(.wrapper-read) {
         max-width: 800px;
         margin: auto;
         padding: 0 15px;
@@ -183,8 +166,8 @@
         color: var(--color-accent);
         text-decoration-style: wavy;
         -webkit-text-decoration-style: wavy;
-        text-underline-offset: 4px;
-        -webkit-text-underline-offset: 4px;
+        text-underline-offset: 1px;
+        -webkit-text-underline-offset: 1px;
         text-decoration-line: underline;
         -webkit-text-decoration-line: underline;
         text-decoration-thickness: 2px;
@@ -202,29 +185,12 @@
     }
 
     :global.wrapper-read a[target="_blank"]:after {
-        content: '🡭';
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath stroke='%23F7C90D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4.343 15.657 15.657 4.343m0 0v9.9m0-9.9h-9.9'/%3E%3C/svg%3E");
         display: inline-block;
-        font-size: 50%;
         vertical-align: super;
-    }
-
-    .post-notice {
-        background: var(--color-second);
-        padding: var(--unit-2) var(--unit-3);
-        border-radius: var(--radius);
-        line-height: 1.3;
-        color: #f7f7f7;
-    }
-
-    .post-notice a {
-        text-decoration: underline wavy 2px var(--color-accent);
-        color: var(--color-accent);
-        transition: var(--transition);
-    }
-
-    .post-notice a:hover {
-        text-decoration-thickness: 0px;
-        -webkit-text-decoration-thickness: 0px;
+        width: 8px;
+        height: 8px;
     }
 
     :global strong {
@@ -294,30 +260,100 @@
 
     :global.wrapper-read ul:not(.post-tags) {
         list-style: none;
-        padding-left: 0;
+        /* padding-left: 0; */
+        margin-top: var(--unit);
+    }
+
+    :global.wrapper-read ol:not([start]) {
+        margin-top: var(--unit);
+        list-style-type: none;
+        counter-reset: num;
+    }
+
+    :global.wrapper-read ol > li {
+        position: relative;
+    }
+
+    :global.wrapper-read ol > li + li {
+        margin-top: var(--unit);
+    }
+
+    :global.wrapper-read  ol > li:before {
+        content: counter(num);
+        counter-increment: num;
+        background: var(--color-second);
+        border-radius: var(--radius);
+        font-weight: 900;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: -2rem;
+        top: 0;
     }
 
     :global.wrapper-read ul:not(.post-tags) li {
         position: relative;
-        display: flex;
-        align-items: flex-start;
+        display: block;
         font-size: var(--p);
     }
 
-    :global.wrapper-read ul:not(.post-tags) li + li{
+    :global.wrapper-read li img {
+        margin: var(--unit-3) 0;
+    }
+
+    :global.wrapper-read ul:not(.post-tags) li + li {
         margin-top: var(--unit);
     }
 
-    :global.wrapper-read ul:not(.post-tags) li:before {
+    :global.wrapper-read ul:not(.post-tags) li:before  {
         content: '';
         background: var(--color-accent);
         width: var(--unit);
         height: var(--unit);
-        display: block;
+        display: inline-block;
         border-radius: 50%;
         margin-right: var(--unit);
-        flex: none;
         margin-top: 7px;
+    }
+
+    :global.wrapper-read ul.contains-task-list li:before {
+        display: none;
+    }
+
+    :global.wrapper-read ul.contains-task-list li input {
+        content: '';
+        border: 2px solid var(--color-primary);
+        width: 20px;
+        height: 20px;
+    }
+
+    :global.wrapper-read ul.contains-task-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    :global.wrapper-read .footnote-ref {
+        text-decoration: none;
+        font-weight: 900;
+    }
+
+    :global.wrapper-read .footnotes ol li:before {
+        display: none;
+    }
+
+    :global.wrapper-read .footnotes ol {
+        list-style-type: decimal;
+        font-size: var(--p3);
+    }
+
+    :global.wrapper-read  .footnote-backref {
+        text-decoration: none;
+        margin-left: 5px;
+        font-weight: 900;
     }
 
     @media(min-width: 992px) {

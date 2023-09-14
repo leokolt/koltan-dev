@@ -1,5 +1,5 @@
 <script>
-    export let bg = undefined
+    export let bg = `bg` //accent, second, reserve
     export let summary = 'Если короче'
 </script>
 

@@ -47,7 +47,7 @@
     <div class="image">
         <img src={image} alt={title}>
         {#if full}
-            <a href={link} target="_blank" >Перейти <span>🡭</span></a>
+            <a href={link} target="_blank" >Перейти <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none"><path stroke="var(--color-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.343 15.657 15.657 4.343m0 0v9.9m0-9.9h-9.9"/></svg></a>
         {/if}
     </div>
 
@@ -76,16 +76,18 @@
         border: var(--border);
         border-radius: var(--radius);
         margin: auto 15px 15px;
+        overflow: hidden;
     }
 
     .work-item.full .image {
         margin: var(--unit-3);
         flex: 1 1 35%;
         position: relative;
+        overflow: hidden;
     }
 
     .image img {
-        border-radius: var(--radius);
+        /* border-radius: var(--radius); */
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -163,14 +165,16 @@
         background: var(--color-reserve)
     }
 
-    a span {
-        font-family:Arial, Helvetica, sans-serif;
+    a svg {
+        width: var(--p);
+        margin-left: 2px;
+        height: var(--p);
     }
 
     h3 {
         font-size: var(--h4);
         margin-bottom: var(--unit-2);
-        display: inline-block;
+        /* display: inline-block; */
     }
 
     p:not(.desc) {

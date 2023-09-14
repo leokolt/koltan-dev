@@ -1,5 +1,5 @@
 <script>
-    export let bg
+    export let bg = accent
     export let emoji = undefined
     export let title = undefined
     export let text = "Текст алерта"

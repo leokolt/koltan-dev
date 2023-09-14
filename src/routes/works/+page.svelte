@@ -41,6 +41,7 @@
 
     $:  filteredWork.slice(0, visiblePosts);
 
+
 </script>
 
 <Seo title="Портфолио разработчика Колтан Леонида" description="Портфолио работ Колтан Леонида" type="WebPage" />
@@ -103,6 +104,7 @@
         font-size: var(--p);
         margin-right: 15px;
         padding: 10px 20px;
+        margin-top: var(--unit);
     }
 
     .selected {
@@ -128,6 +130,7 @@
         grid-auto-columns: max-content;
         grid-auto-flow: column;
         padding-bottom: var(--unit-2);
+        margin-top: var(--unit-2);
     }
 
     @media(min-width: 992px) {

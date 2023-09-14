@@ -1,6 +1,6 @@
-import { getMarkdownPosts } from '$lib/utils/getPosts'
+import { getMarkdownPosts } from '$lib/utils/getPosts.js'
 
-const siteURL = 'http://localhost:5173'
+const siteURL = 'https://propslab.ru'
 const siteTitle = 'Your site title here'
 const siteDescription = 'Your site description here'
 

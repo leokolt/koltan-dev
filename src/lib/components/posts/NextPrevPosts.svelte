@@ -1,5 +1,5 @@
 <script>
-    import { getMarkdownPosts } from '$lib/utils/getPosts'
+    import { getMarkdownPosts } from '$lib/utils/getPosts.js'
     import { onMount } from 'svelte'
 
     let posts = []

@@ -46,21 +46,23 @@ on:click="{() => menuShow = !menuShow}">
 <style lang="postcss">
     nav {
         position: absolute;
-        top: -300%;
         background: var(--color-bg);
-        width: 100%;
-        left: 0;
+        width: 70%;
+        right: -10px;
+        top: 70px;
         transition: var(--transition);
+        transform: scale(0);
+        transform-origin: top right;
     }
 
     nav.show {
         top: 70px;
         padding: 20px;
         border: 3px solid var(--color-primary);
-        border-left: none;
-        border-right: none;
         background: var(--color-bg);
         z-index: 1;
+        border-radius: var(--radius) 0 var(--radius) var(--radius);
+        transform: scale(1);
     }
 
     ul {
@@ -184,6 +186,8 @@ on:click="{() => menuShow = !menuShow}">
             left: unset;
             transition: unset;
             border: none;
+            transform: unset;
+            border-radius: unset;
         }
 
         nav.show {

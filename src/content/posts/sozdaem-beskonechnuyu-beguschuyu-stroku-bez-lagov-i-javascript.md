@@ -1,10 +1,10 @@
 ---
 title: Создаем бесконечную бегущую строку без лагов и JavaScript
-date: "2023-01-24"
+date: "2023-09-25"
 description: "Анимированная строка с текстом на чистом CSS"
 tags: [pro-animatsii, css, html]
-reading: 2
-published: true
+reading: 6
+published: false
 
 ---
 

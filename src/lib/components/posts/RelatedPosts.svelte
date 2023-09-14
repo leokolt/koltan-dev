@@ -1,5 +1,5 @@
 <script>
-    import { getMarkdownPosts } from '$lib/utils/getPosts'
+    import { getMarkdownPosts } from '$lib/utils/getPosts.js'
     import { onMount } from 'svelte'
     import Carousel from "../globals/Carousel.svelte";
     import { dateFormat } from '$lib/utils/dateFormat.js'
@@ -56,7 +56,8 @@
         padding: var(--unit-3);
         padding-bottom: calc(1.5 * var(--unit-3));
         position: relative;
-        margin-bottom: var(--unit-3);
+        margin-bottom: calc(2 * var(--unit-3));
+
     }
     h4 a {
         font-size: var(--h5);

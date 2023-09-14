@@ -1,7 +1,6 @@
 <script>
-    import { calculateTime } from "$lib/utils/timeInterval";
-    import { plural } from "$lib/utils/pluralWord";
-
+    import { calculateTime } from "$lib/utils/timeInterval.js";
+    import { plural } from "$lib/utils/pluralWord.js";
 </script>
 
 <section>

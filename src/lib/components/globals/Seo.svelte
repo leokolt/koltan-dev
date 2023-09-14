@@ -27,7 +27,7 @@
         if (dev) {
             socialImageUrl = `http://localhost:5173${socialImagePath}`
         } else {
-            socialImageUrl = `https://koltan-dev.vercel.app${socialImagePath}`
+            socialImageUrl = `https://propslab.ru${socialImagePath}`
         }
     }
 </script>

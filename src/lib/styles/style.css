@@ -47,9 +47,16 @@ button {
 }
 
 html, body {
-  scrollbar-gutter: stable;
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
 }
 
+:target { scroll-margin-top: 4rem; }
+
+img {
+    object-fit: cover;
+    height: auto;
+}
 
 @font-face {
     font-family: "WorkSans";
@@ -150,6 +157,49 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
     margin-right: auto;
     padding: 0 15px;
+    width: 100%;
+}
+
+.wrapper-read {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 15px;
+    font-size: var(--read-font);
+}
+
+.wrapper-read > * + * {
+    margin-top: var(--unit-3);
+}
+
+.wrapper-read a {
+    color: var(--color-accent);
+    text-decoration-style: wavy;
+    -webkit-text-decoration-style: wavy;
+    text-underline-offset: 4px;
+    -webkit-text-underline-offset: 4px;
+    text-decoration-line: underline;
+    -webkit-text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    -webkit-text-decoration-thickness: 2px;
+    text-decoration-color: var(--color-accent);
+    -webkit-text-decoration-color: var(--color-accent);
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip-ink: none;
+    transition: var(--transition);
+}
+
+.wrapper-read a:hover {
+    text-decoration-color: transparent;
+    -webkit-text-decoration-color: transparent;
+}
+
+.wrapper-read a[target="_blank"]:after {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath stroke='%23F7C90D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4.343 15.657 15.657 4.343m0 0v9.9m0-9.9h-9.9'/%3E%3C/svg%3E");
+    display: inline-block;
+    vertical-align: super;
+    width: 8px;
+    height: 8px;
 }
 
 .no-padding {
@@ -210,7 +260,7 @@ section {
 
 /*code highlight*/
 
-p code {
+p code, li code {
     background: #24292E;
     color: #bad0d9;
     border-radius: 5px;

@@ -8,21 +8,18 @@
 
     const handleScroll = () => {
         var currentScrollposition = window.scrollY || document.documentElement.scrollTop; //Get current scroll position
-            if (currentScrollposition > lastScrollPosition) {
-                showHeader = false
-            } else {
-                showHeader = true
-            }
-                lastScrollPosition = currentScrollposition;
-            }
-
+        if (currentScrollposition < lastScrollPosition) {
+            showHeader = true
+        }
+        lastScrollPosition = currentScrollposition;
+    }
 
 
 </script>
 
 <svelte:window on:scroll={handleScroll} />
 
-<header class={showHeader === true && lastScrollPosition > 0 ? "show" : showHeader === true && lastScrollPosition <= 0 ? "" : 'hide'}>
+<header class={showHeader === true && lastScrollPosition > 0 ? "show" : ''}>
     <div class="wrapper">
         <div class="header__inner">
             <div class="header__left">
@@ -42,10 +39,15 @@
 </header>
 
 <style>
+    :global(body) {
+        --header-height: 75px;
+        --header-height--small: 55px;
+        padding-top: var(--header-height);
+    }
 
     header {
-        padding: 10px 0;
-        position: sticky;
+        /* padding: 10px 0; */
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -55,17 +57,18 @@
         z-index: 99;
         border-bottom: 2px solid transparent;
         transform: unset;
-    }
-
-
-    header.hide {
-        transform: translateY(-100%);
+        width: 100%;
+        height: var(--header-height);
+        display: grid;
+        place-items: center;
     }
 
     header.show {
         border-color: var(--color-primary);
         transform: translateY(0);
-        padding: 10px 0;
+        /* padding: 10px 0; */
+        position: fixed;
+        height: var(--header-height--small);
     }
 
     .header__inner {
@@ -94,11 +97,15 @@
     }
 
     svg {
-        width: 50px;
+        width: 2.4rem;
         position: relative;
         z-index: 2;
         transition: var(--transition-cubic);
         overflow: visible;
+    }
+
+    header.show svg{
+        width: 1.9rem;
     }
 
     svg .path1, svg .path2 {
@@ -115,8 +122,9 @@
 
 
     @media(min-width: 992px) {
-        header {
-            padding: 20px 0;
+        :global(body) {
+            --header-height: 85px;
+            --header-height--small: 65px;
         }
     }
 

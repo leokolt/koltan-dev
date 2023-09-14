@@ -36,7 +36,7 @@
                 </div>
             {/each}
         </div>
-        <a href="https://kwork.ru/user/cazumbra#reviews" class="btn btn-review" target="_blank">Все отзывы с биржи</a>
+        <a href="https://kwork.ru/user/cazumbra#reviews" class="btn btn-review" target="_blank">Все отзывы с биржи <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none"><path stroke="var(--color-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.343 15.657 15.657 4.343m0 0v9.9m0-9.9h-9.9"/></svg></a>
     </div>
 </section>
 
@@ -116,10 +116,10 @@
         display: inline-block;
     }
 
-    .btn-review:after {
-        content: '🡭';
+    .btn-review svg {
         display: inline-block;
-        font-size: 70%;
+        height: var(--p2);
+        width: var(--p2);
         vertical-align: super;
     }
 

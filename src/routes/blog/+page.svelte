@@ -98,7 +98,7 @@
             grid-column: 1 / 3;
         }
         :global.page-blog > article:first-child h3 a {
-            font-size: var(--h3);
+            font-size: var(--h2);
         }
 
         input {

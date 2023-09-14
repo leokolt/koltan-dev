@@ -1,5 +1,4 @@
 import { json, error } from '@sveltejs/kit'
-//import { getContentForPathname } from '$lib/utils/getPosts.js'
 
 export const prerender = true
 

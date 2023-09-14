@@ -1,10 +1,10 @@
-import { getMarkdownPosts } from '$lib/utils/getPosts'
+import { getMarkdownPosts } from '$lib/utils/getPosts.js'
 
 export const prerender = true
 
 const pages = ["about", "blog", "contact", "works"] //list of pages as a string ex. ["about", "blog", "contact"]
 
-const website = "http://localhost:5173"
+const siteURL = "https://propslab.ru"
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({url}) {
@@ -30,20 +30,20 @@ const sitemap = (posts, pages) => `<?xml version="1.0" encoding="UTF-8" ?>
   xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 >
   <url>
-    <loc>${website}</loc>
+    <loc>${siteURL}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   ${pages.map((page) => `
   <url>
-    <loc>${website}/${page}</loc>
+    <loc>${siteURL}/${page}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   `).join('')}
   ${posts.map((post) => post.published ? null : `
   <url>
-    <loc>${website}/blog/${post.slug}</loc>
+    <loc>${siteURL}/blog/${post.slug}</loc>
     <changefreq>weekly</changefreq>
     <lastmod>${post.meta.date}</lastmod>
     <priority>0.3</priority>

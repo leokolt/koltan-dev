@@ -48,7 +48,7 @@ function rangeParser(rangeString) {
  */
 function makeFocussable(html) {
     const root = parse(html);
-    root.querySelector('pre').setAttribute('tabIndex', '0');
+    //root.querySelector('pre').setAttribute('tabIndex', '0');
     return root.toString();
 }
 
