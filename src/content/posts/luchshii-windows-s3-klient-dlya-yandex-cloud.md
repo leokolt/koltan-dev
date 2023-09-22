@@ -2,7 +2,7 @@
 title: Выбираем лучший S3-клиент под Windows для работы с облаком Яндекса
 date: "2023-10-15"
 description: "Рассказываю о том, как я выбирал себе программу для работы с Яндекс Облаком и как с ними работать"
-tags: [yandeks-oblako, s3, windows]
+tags: [yandeks-oblako, windows]
 reading: 6
 published: false
 ---
@@ -27,7 +27,7 @@ published: false
     import s3c4 from '$lib/assets/images/posts/s3c-4.jpg?w=480;800&as=run'
     import s3c5 from '$lib/assets/images/posts/s3c-5.jpg?w=480;800&as=run'
 
-   import Image from '$lib/components/globals/Image.svelte'
+    import Image from '$lib/components/globals/Image.svelte'
 </script>
 
 1. В [консоли управления](https://console.cloud.yandex.ru/) Яндекс Облака выбираем строку с именем каталога, в котором вы хотите создать сервисный аккаунт. Как правило, если не менять его название при создании, то он будет называться * default *.

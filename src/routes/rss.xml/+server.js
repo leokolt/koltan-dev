@@ -1,8 +1,8 @@
 import { getMarkdownPosts } from '$lib/utils/getPosts.js'
 
-const siteURL = 'https://propslab.ru'
-const siteTitle = 'Your site title here'
-const siteDescription = 'Your site description here'
+const siteURL = 'https://koltan.dev'
+const siteTitle = 'koltan.dev'
+const siteDescription = 'Сайт Колтан Леонида'
 
 export const prerender = true
 

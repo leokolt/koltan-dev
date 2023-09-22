@@ -2,12 +2,10 @@
 title: Стили элементов в статьях
 date: "2022-12-14"
 description: Всем привет Меня зовут Леонид, и я - классный парнишка
-tags:
-  - numbers
-  - odd
+tags: [yandeks-oblako, windows]
 reading: 3
-published: true
-update: "2022-12-18"
+published: false
+#update: "2022-12-18"
 ---
 
 Hello, I am _Post One._

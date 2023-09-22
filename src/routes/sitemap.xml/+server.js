@@ -2,9 +2,9 @@ import { getMarkdownPosts } from '$lib/utils/getPosts.js'
 
 export const prerender = true
 
-const pages = ["about", "blog", "contact", "works"] //list of pages as a string ex. ["about", "blog", "contact"]
+const pages = ["about", "blog", "contact", "works", "donate", "privacy-policy"] //list of pages as a string ex. ["about", "blog", "contact"]
 
-const siteURL = "https://propslab.ru"
+const siteURL = "https://koltan.dev"
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({url}) {
