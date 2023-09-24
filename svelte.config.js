@@ -1,6 +1,6 @@
 // import adapter from '@sveltejs/adapter-static';
 //import adapter from '@sveltejs/adapter-vercel'
-// import sveltePreprocess from 'svelte-preprocess'
+import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-node';
 
 import { mdsvex, escapeSvelte  } from 'mdsvex'
@@ -29,7 +29,7 @@ const config = {
 	},
     extensions: ['.svelte', '.md'],
     preprocess: [
-        // sveltePreprocess(),
+        sveltePreprocess(),
         mdsvex(mdsvexOptions),
     ]
 };
