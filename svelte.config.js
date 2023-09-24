@@ -1,8 +1,6 @@
-// import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-static';
 //import adapter from '@sveltejs/adapter-vercel'
 import sveltePreprocess from 'svelte-preprocess'
-import adapter from '@sveltejs/adapter-node';
-
 import { mdsvex, escapeSvelte  } from 'mdsvex'
 import highlighter from './src/lib/utils/codeHighlLighter.js'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -23,7 +21,7 @@ const config = {
 	kit: {
 		adapter: adapter(
             {
-                out: 'build'
+                fallback: 'index.html' // may differ from host to host
             }
         )
 	},
