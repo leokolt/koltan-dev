@@ -61,6 +61,7 @@ img {
 @font-face {
     font-family: "WorkSans";
     src: url("/fonts/WorkSansGX.woff2") format("woff2");
+    font-display: swap;
 }
 
 :root {

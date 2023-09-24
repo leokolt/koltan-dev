@@ -21,7 +21,7 @@
 <Seo
     description={data.description}
     title={data.title}
-    type="BlogPosting"
+    type="article"
     generateOgImage={true}
 />
 

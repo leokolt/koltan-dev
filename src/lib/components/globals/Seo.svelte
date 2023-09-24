@@ -27,7 +27,7 @@
         if (dev) {
             socialImageUrl = `http://localhost:5173${socialImagePath}`
         } else {
-            socialImageUrl = `https://propslab.ru${socialImagePath}`
+            socialImageUrl = `https://koltan.dev${socialImagePath}`
         }
     }
 </script>

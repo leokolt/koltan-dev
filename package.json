@@ -8,7 +8,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+        "dep": "vite build && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./build/* && caprover deploy -t ./deploy.tar"
 	},
 	"devDependencies": {
 		"@resvg/resvg-js": "^2.4.1",

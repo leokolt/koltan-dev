@@ -1,7 +1,6 @@
 User-agent: *
 
-Disallow: /
 Disallow: /*.js$
 Disallow: /*.json
 
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://koltan.dev/sitemap.xml
