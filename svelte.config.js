@@ -1,6 +1,6 @@
-import adapter from '@sveltejs/adapter-static';
+// import adapter from '@sveltejs/adapter-static';
 //import adapter from '@sveltejs/adapter-vercel'
-import sveltePreprocess from 'svelte-preprocess'
+// import sveltePreprocess from 'svelte-preprocess'
 import { mdsvex, escapeSvelte  } from 'mdsvex'
 import highlighter from './src/lib/utils/codeHighlLighter.js'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -21,13 +21,13 @@ const config = {
 	kit: {
 		adapter: adapter(
             {
-                fallback: 'index.html' // may differ from host to host
+                out: 'build'
             }
         )
 	},
     extensions: ['.svelte', '.md'],
     preprocess: [
-        sveltePreprocess(),
+        // sveltePreprocess(),
         mdsvex(mdsvexOptions),
     ]
 };
