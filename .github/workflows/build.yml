@@ -21,6 +21,6 @@ jobs:
         uses: caprover/deploy-from-github@v1.1.2
         with:
           server: https://caprover.propslab.ru/
-          app: 'sveltekit'
+          app: 'koltandev'
           token: '${{ secrets.APP_TOKEN }}'
-          image: 'ghcr.io/leokolt/sveltekit:latest'
+          image: 'ghcr.io/leokolt/koltandev:latest'
