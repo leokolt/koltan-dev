@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 //import adapter from '@sveltejs/adapter-vercel'
 import sveltePreprocess from 'svelte-preprocess'
-import { mdsvex, escapeSvelte  } from 'mdsvex'
+import { mdsvex  } from 'mdsvex'
 import highlighter from './src/lib/utils/codeHighlLighter.js'
 import rehypeExternalLinks from 'rehype-external-links'
 import remarkFootnotes from 'remark-footnotes'

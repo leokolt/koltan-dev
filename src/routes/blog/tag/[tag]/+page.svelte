@@ -103,10 +103,10 @@
         .page-content {
             grid-template-columns: repeat(3, 1fr);
         }
-        :global.page-content > article:first-child {
+        :global(.page-content > article:first-child) {
             grid-column: 1 / 3;
         }
-        :global.page-content > article:first-child h3 a {
+        :global(.page-content > article:first-child h3 a) {
             font-size: var(--h3);
         }
 

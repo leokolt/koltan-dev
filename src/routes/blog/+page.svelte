@@ -94,10 +94,10 @@
         .page-blog {
             grid-template-columns: repeat(3, 1fr);
         }
-        :global.page-blog > article:first-child {
+        :global(.page-blog > article:first-child) {
             grid-column: 1 / 3;
         }
-        :global.page-blog > article:first-child h3 a {
+        :global(.page-blog > article:first-child h3 a) {
             font-size: var(--h2);
         }
 
