@@ -5,14 +5,10 @@
     export let title
     export let description
     export let type
-    //export let date
-    // export let ogImage
 
     $: url = $page.url.href
 
-
     export let generateOgImage = false
-    //export let postPage = false
 
     let socialImageData
     let socialImagePath
